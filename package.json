@@ -14,7 +14,7 @@
 		"url": "git+https://github.com/Bworld-Studio/openPharma.git"
 	},
 	"author": "Gray Fawkes",
-	"license": "ISC",
+	"license": "MIT",
 	"bugs": {
 		"url": "https://github.com/Bworld-Studio/openPharma/issues"
 	},
