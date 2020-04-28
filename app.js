@@ -1,5 +1,7 @@
 var express = require('express');   // Require express
-// var mongoose = require('mongoose');
+var mongoose = require('mongoose');
+
+mongoose.connect('mongodb://localhost/openPharma');
 
 var app = express();    // Instanciate Express application
 
