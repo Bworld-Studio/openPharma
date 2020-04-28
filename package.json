@@ -4,7 +4,9 @@
   "description": "openPharma Framework",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prestart": "mongod --dbpath ./data/db --config ./data/db/mongod.cfg",
+    "start": "node app.js",
+    "start2": "mongod --dbpath ./data/db --config ./data/db/mongod.cfg && node app.js"
   },
   "repository": {
     "type": "git",
