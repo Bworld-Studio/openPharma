@@ -1,2 +1,0 @@
-# openPharma
- openPharma Application

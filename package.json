@@ -1,0 +1,27 @@
+{
+  "name": "openpharma",
+  "version": "0.0.1",
+  "description": "openPharma Framework",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bworld-Studio/openPharma.git"
+  },
+  "author": "Gray Fawkes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Bworld-Studio/openPharma/issues"
+  },
+  "homepage": "https://github.com/Bworld-Studio/openPharma#readme",
+  "dependencies": {
+    "bootstrap": "^4.4.1",
+    "express": "^4.17.1",
+    "jquery": "^3.5.0",
+    "mongoose": "^5.9.10",
+    "popper": "^1.0.1",
+    "vue": "^2.6.11"
+  }
+}

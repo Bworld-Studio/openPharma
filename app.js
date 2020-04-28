@@ -1,13 +1,14 @@
-var express = require('express');   // Require express
-var mongoose = require('mongoose');
+var express = require('express');		// Require Express
+var mongoose = require('mongoose');	// Require mongoose
+var vue = require('vue');
 
-mongoose.connect('mongodb://localhost/openPharma');
+mongoose.connect('mongodb://localhost/openpharma')
+				.then(() =>  console.log('connection succesful'))
+				.catch((err) => console.error(err));
 
-var app = express();    // Instanciate Express application
+var app = express();		// Instanciate Application
 
-app.get('/', (req, res) => {	// Function executed at root of the page
-	res.send('openPharma 0.1')
-});
+app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css')); // Get Boostrap.css
 
-console.log('openPharma launched on port 3000');	// Test
+console.log("openPharma launched on port 3000");
 app.listen(3000);
