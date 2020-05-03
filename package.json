@@ -6,8 +6,7 @@
 	"scripts": {
 		"prepublish": "npm install",
 		"prestart": "mongod --dbpath ./data/db --config ./data/db/mongod.cfg",
-		"start": "node app.js",
-		"start2": "mongod --dbpath ./data/db --config ./data/db/mongod.cfg && node app.js"
+		"start": "node app.js"
 	},
 	"repository": {
 		"type": "git",
