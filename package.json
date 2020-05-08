@@ -5,8 +5,9 @@
 	"main": "app.js",
 	"scripts": {
 		"prepublish": "npm install",
-		"prestart": "mongod --dbpath ./data/db --config ./data/db/mongod.cfg",
-		"start": "node app.js"
+		"prestart": "mongod --dbpath ./data/db --fork --logpath ./data/db/mongod.log",
+		"start": "node server.js",
+		"dev": "nodemon server.js"
 	},
 	"repository": {
 		"type": "git",
@@ -19,11 +20,15 @@
 	},
 	"homepage": "https://github.com/Bworld-Studio/openPharma#readme",
 	"dependencies": {
+		"body-parser": "^1.19.0",
 		"bootstrap": "^4.4.1",
 		"express": "^4.17.1",
 		"jquery": "^3.5.0",
-		"mongoose": "^5.9.10",
+		"mongodb": "^3.5.7",
 		"popper": "^1.0.1",
 		"vue": "^2.6.11"
+	},
+	"devDependencies": {
+		"nodemon": "^2.0.3"
 	}
 }
