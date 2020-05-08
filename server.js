@@ -1,6 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
+const vue = require('vue');
+
 const app = express();
 
 // Middleware
