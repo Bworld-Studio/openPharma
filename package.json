@@ -5,7 +5,6 @@
 	"main": "app.js",
 	"scripts": {
 		"prepublish": "npm install",
-		"prestart": "mongod --dbpath ./data/db --fork --logpath ./data/db/mongod.log",
 		"start": "node server.js",
 		"dev": "nodemon server.js"
 	},
@@ -25,10 +24,6 @@
 		"cors": "^2.8.5",
 		"express": "^4.17.1",
 		"mariadb": "^2.3.1",
-		"popper": "^1.0.1",
 		"vue": "^2.6.11"
-	},
-	"devDependencies": {
-		"nodemon": "^2.0.4"
 	}
 }

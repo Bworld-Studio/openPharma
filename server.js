@@ -3,14 +3,12 @@ const bodyParser = require('body-parser');
 
 const mariadb = require('mariadb');
 
-const pool = mariadb.createPool({
-	host: 'mydb.com',
-	user:'myUser',
-	password: 'myPassword',
-	connectionLimit: 0
-});
+var mariaParams = { host: 'localhost', user:'root', password: 'metal', connectionLimit: 0 }
+
+const pool = mariadb.createPool( mariaParams );
 
 const vue = require('vue');
+
 
 const app = express();
 
