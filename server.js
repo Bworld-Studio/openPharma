@@ -9,11 +9,9 @@ const pool = mariadb.createPool( mariaParams );
 
 const vue = require('vue');
 
-
 const app = express();
 
-// Middleware
-app.use(bodyParser.json());
+app.use(bodyParser.json()); // Middleware
 
 const port = process.env.PORT || 3000;
 
