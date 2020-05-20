@@ -1,15 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-
 const mariadb = require('mariadb');
+const vue = require('vue');
 
 var mariaParams = { host: 'localhost', user:'root', password: 'metal', connectionLimit: 0 }
 
 const pool = mariadb.createPool( mariaParams );
 
-const vue = require('vue');
-
-
+// Application creation
 const app = express();
 
 // Middleware
