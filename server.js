@@ -4,14 +4,11 @@ const mariadb = require('mariadb');
 const vue = require('vue');
 
 var mariaParams = { host: 'localhost', user:'root', password: 'metal', connectionLimit: 0 }
-
 const pool = mariadb.createPool( mariaParams );
 
-// Application creation
-const app = express();
+const app = express();			// Application creation
 
-// Middleware
-app.use(bodyParser.json());
+app.use(bodyParser.json()); // Middleware
 
 const port = process.env.PORT || 3000;
 
