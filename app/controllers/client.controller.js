@@ -14,9 +14,10 @@ exports.create = (req, res) => {
 
   // Create a Client
   const client = {
-    title: req.body.title,
-    description: req.body.description,
-    published: req.body.published ? req.body.published : false
+    guid: req.body.guid,
+    numSS: req.body.numSS,
+    lastName: req.body.lastName,
+    firstName: req.body.firstName
   };
 
   // Save Tutorial in the database
