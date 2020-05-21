@@ -4,7 +4,7 @@ const cors = require('cors');
 const mariadb = require('mariadb');
 const vue = require('vue');
 
-var mariaParams = { host: 'localhost', user:'root', password: 'metal', connectionLimit: 0 }
+var mariaParams = { host: 'localhost', user:'root', password: 'metal', connectionLimit: 0 };
 const pool = mariadb.createPool( mariaParams );
 
 // Application creation

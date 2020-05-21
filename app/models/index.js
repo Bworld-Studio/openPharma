@@ -19,6 +19,6 @@ const dbA = {};
 dbA.Sequelize = Sequelize;
 dbA.sequelize = sequelize;
 
-dbA.tutorials = require("./tutorial.model.js")(sequelize, Sequelize);
+dbA.clients = require("./client.model.js")(sequelize, Sequelize);
 
 module.exports = dbA;
