@@ -20,10 +20,10 @@
 	"homepage": "https://github.com/Bworld-Studio/openPharma#readme",
 	"dependencies": {
 		"body-parser": "^1.19.0",
-		"bootstrap": "^4.5.0",
 		"cors": "^2.8.5",
 		"express": "^4.17.1",
 		"mariadb": "^2.3.1",
+		"sequelize": "^5.21.10",
 		"vue": "^2.6.11"
 	}
 }
