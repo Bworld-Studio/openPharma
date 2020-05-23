@@ -23,7 +23,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const dbA = require("./app/models");
 dbA.sequelize.sync();
 
-
 // Simple route
 app.get("/", (req, res) => {
 	res.json({ message: "Welcome to openPharma 0.1." });
