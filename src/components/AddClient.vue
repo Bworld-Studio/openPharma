@@ -8,28 +8,38 @@
 
 			<div class="form-group">
 				<label for="description">Description</label>
-				<input class="form-control" id="description" required v-model="tutorial.description" name="description"/>
+				<input class="form-control" id="description" required v-model="client.description" name="description"/>
 			</div>
 
-			<button @click="saveTutorial" class="btn btn-success">Submit</button>
+			<!-- <div class="form-group">
+				<label for="description">Description</label>
+				<input class="form-control" id="description" required v-model="client.description" name="description"/>
+			</div> -->
+
+			<!-- <div class="form-group">
+				<label for="description">Description</label>
+				<input class="form-control" id="description" required v-model="client.description" name="description"/>
+			</div> -->
+
+			<button @click="saveClient" class="btn btn-success">Submit</button>
 		</div>
 
 		<div v-else>
 			<h4>You submitted successfully!</h4>
-			<button class="btn btn-success" @click="newTutorial">Add</button>
+			<button class="btn btn-success" @click="newClient">Add</button>
 		</div>
 	</div>
 </template>
 
 <script>
-import TutorialDataService from "../services/TutorialDataService";
+import ClientDataService from "../services/ClientDataService";
 
 export default {
-	name: "add-tutorial",
+	name: "add-client",
 	data() {
 		return {
-			tutorial: {
-				id: null,
+			client: {
+				guid: null,
 				title: "",
 				description: "",
 				published: false
@@ -38,15 +48,15 @@ export default {
 		};
 	},
 	methods: {
-		saveTutorial() {
+		saveClient() {
 			var data = {
-				title: this.tutorial.title,
-				description: this.tutorial.description
+				title: this.client.title,
+				description: this.client.description
 			};
 
-			TutorialDataService.create(data)
+			ClientDataService.create(data)
 				.then(response => {
-					this.tutorial.id = response.data.id;
+					this.client.id = response.data.id;
 					console.log(response.data);
 					this.submitted = true;
 				})
@@ -55,9 +65,9 @@ export default {
 				});
 		},
 
-		newTutorial() {
+		newClient() {
 			this.submitted = false;
-			this.tutorial = {};
+			this.client = {};
 		}
 	}
 };
