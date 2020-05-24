@@ -3,23 +3,23 @@
 		<div v-if="!submitted">
 			<div class="form-group">
 				<label for="guid">guid</label>
-				<input type="text" class="form-control" id="guid" required v-model="client.guid" name="guid" />
+				<input type="text" class="form-control" id="guid" required v-model="client.guid" name="guid"/>
 			</div>
 
 			<div class="form-group">
-				<label for="description">Description</label>
-				<input class="form-control" id="description" required v-model="client.description" name="description"/>
+				<label for="numss">Num SS</label>
+				<input class="form-control" id="descripnumsstion" required v-model="client.numss" name="numss"/>
 			</div>
 
-			<!-- <div class="form-group">
-				<label for="description">Description</label>
-				<input class="form-control" id="description" required v-model="client.description" name="description"/>
-			</div> -->
+			<div class="form-group">
+				<label for="lastName">Last Name</label>
+				<input class="form-control" id="description" required v-model="client.lastname" name="lastName"/>
+			</div>
 
-			<!-- <div class="form-group">
-				<label for="description">Description</label>
-				<input class="form-control" id="description" required v-model="client.description" name="description"/>
-			</div> -->
+			<div class="form-group">
+				<label for="firstName">First Name</label>
+				<input class="form-control" id="firstName" required v-model="client.firstname" name="firstName"/>
+			</div>
 
 			<button @click="saveClient" class="btn btn-success">Submit</button>
 		</div>
@@ -40,9 +40,10 @@ export default {
 		return {
 			client: {
 				guid: null,
-				title: "",
-				description: "",
-				published: false
+				numss: "",
+				lastname: "",
+				firstname: "",
+				// published: false
 			},
 			submitted: false
 		};
@@ -50,13 +51,14 @@ export default {
 	methods: {
 		saveClient() {
 			var data = {
-				title: this.client.title,
-				description: this.client.description
+				numss: this.client.numss,
+				lastname: this.client.lastname,
+				firstname: this.client.firstname
 			};
 
 			ClientDataService.create(data)
 				.then(response => {
-					this.client.id = response.data.id;
+					this.client.guid = response.data.guid;
 					console.log(response.data);
 					this.submitted = true;
 				})

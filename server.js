@@ -24,9 +24,10 @@ const dbA = require("./app/models");
 dbA.sequelize.sync();
 
 // Simple route
-app.get("/", (req, res) => {
-	res.json({ message: "Welcome to openPharma 0.1." });
-});
+require("./app/routes/client.routes")(app);
+// app.get("/", (req, res) => {
+// 	res.json({ message: "Welcome to openPharma 0.1." });
+// });
 
 // Set port, listen for requests
 const port = process.env.PORT || 3000;
