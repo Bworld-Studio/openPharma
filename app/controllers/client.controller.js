@@ -14,7 +14,6 @@ exports.create = (req, res) => {
 
   // Create a Client
   const client = {
-    guid: req.body.guid,
     numSS: req.body.numSS,
     lastName: req.body.lastName,
     firstName: req.body.firstName
@@ -52,7 +51,7 @@ exports.findAll = (req, res) => {
 
 // Find a single Client with an id.
 exports.findOne = (req, res) => {
-  const guid = req.params.guid;
+  const id = req.params.id;
 
   Client.findByPk(id)
     .then(data => {
@@ -92,10 +91,10 @@ exports.update = (req, res) => {
 
 // Delete a Client with the specified id in the request.
 exports.delete = (req, res) => {
-  const guid = req.params.guid;
+  const id = req.params.id;
 
   Client.destroy({
-    where: { guid: guid }
+    where: { id: id }
   })
     .then(num => {
       if (num == 1) {
@@ -104,7 +103,7 @@ exports.delete = (req, res) => {
         });
       } else {
         res.send({
-          message: `Cannot delete Client with guid=${guid}. Maybe Client was not found!`
+          message: `Cannot delete Client with guid=${id}. Maybe Client was not found!`
         });
       }
     })

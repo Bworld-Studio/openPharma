@@ -1,8 +1,5 @@
 module.exports = (sequelize, Sequelize) => {
 	const Client = sequelize.define("client", {
-		guid: {
-			type: Sequelize.STRING
-		},
 		numSS: {
 			type: Sequelize.STRING
 		},
