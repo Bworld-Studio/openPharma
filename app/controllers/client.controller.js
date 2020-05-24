@@ -1,9 +1,10 @@
 const dbA = require("../models");
-const Client = dbA.client;
+const Client = dbA.clients;
 const Op = dbA.Sequelize.Op;
 
 // Create and Save a new Client.
 exports.create = (req, res) => {
+
   // Validate request
   if (!req.body.numSS) {
     res.status(400).send({
@@ -11,14 +12,19 @@ exports.create = (req, res) => {
     });
     return;
   }
-
+  
   // Create a Client
   const client = {
+    uuid: req.body.uuid,
     numSS: req.body.numSS,
+    cleSS: req.body.cleSS,
     lastName: req.body.lastName,
-    firstName: req.body.firstName
+    firstName: req.body.firstName,
+    birthDate: req.body.birthDate,
+    active: req.body.active
   };
-
+  console.log(client);
+  // console.log(Client);
   // Save Client in the database
   Client.create(client)
     .then(data => {
@@ -51,10 +57,11 @@ exports.findAll = (req, res) => {
 
 // Find a single Client with an id.
 exports.findOne = (req, res) => {
-  const id = req.params.id;
+  const uuid = req.params.uuid;
 
-  Client.findByPk(id)
+  Client.findByPk(uuid)
     .then(data => {
+      console.log(data);
       res.send(data);
     })
     .catch(err => {
@@ -66,10 +73,10 @@ exports.findOne = (req, res) => {
 
 // Update a Client by the id in the request.
 exports.update = (req, res) => {
-  const numSS = req.params.numSS;
+  const uuid = req.params.uuid;
 
   Client.update(req.body, {
-    where: { numSS: numSS }
+    where: { uuid: uuid }
   })
     .then(num => {
       if (num == 1) {
@@ -78,23 +85,23 @@ exports.update = (req, res) => {
         });
       } else {
         res.send({
-          message: `Cannot update Client with id=${id}. Maybe Client was not found or req.body is empty!`
+          message: `Cannot update Client with id=${uuid}. Maybe Client was not found or req.body is empty!`
         });
       }
     })
     .catch(err => {
       res.status(500).send({
-        message: "Error updating Client with id=" + id
+        message: "Error updating Client with id=" + uuid
       });
     });
 };
 
 // Delete a Client with the specified id in the request.
 exports.delete = (req, res) => {
-  const id = req.params.id;
+  const uuid = req.params.uuid;
 
   Client.destroy({
-    where: { id: id }
+    where: { uuid: uuid }
   })
     .then(num => {
       if (num == 1) {
@@ -132,8 +139,8 @@ exports.deleteAll = (req, res) => {
 };
 
 // Find all published Clients
-exports.findAllPublished = (req, res) => {
-  Client.findAll({ where: { published: true } })
+exports.findAllActive = (req, res) => {
+  Client.findAll({ where: { active: true } })
   .then(data => {
     res.send(data);
   })

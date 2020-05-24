@@ -1,14 +1,16 @@
 module.exports = (sequelize, Sequelize) => {
 	const Client = sequelize.define("client", {
-		numSS: {
-			type: Sequelize.STRING
+		uuid: {
+			type: Sequelize.UUID,
+			defaultValue: Sequelize.UUIDV4,
+			primaryKey: true
 		},
-		lastName: {
-			type: Sequelize.STRING
-		},
-		firstName: {
-			type: Sequelize.STRING
-		}
+		numSS: { type: Sequelize.STRING(13) },
+		cleSS: { type: Sequelize.INTEGER(2) },
+		lastName: { type: Sequelize.STRING },
+		firstName: { type: Sequelize.STRING },
+		birthDate: { type: Sequelize.DATEONLY },
+		active: { type: Sequelize.BOOLEAN }
 	});
 
 	return Client;
