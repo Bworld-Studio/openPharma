@@ -43,9 +43,7 @@ export default {
 				numss: "",
 				lastname: "",
 				firstname: "",
-				// published: false
-			},
-			submitted: false
+			}
 		};
 	},
 	methods: {

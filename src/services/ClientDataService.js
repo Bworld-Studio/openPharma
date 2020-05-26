@@ -1,32 +1,32 @@
 import http from "../http-common";
 
-class TutorialDataService {
+class ClientDataService {
   getAll() {
     return http.get("/clients");
   }
 
-  get(id) {
-    return http.get(`/clients/${id}`);
+  get(uuid) {
+    return http.get(`/clients/${uuid}`);
   }
 
   create(data) {
     return http.post("/clients", data);
   }
 
-  update(id, data) {
-    return http.put(`/clients/${id}`, data);
+  update(uuid, data) {
+    return http.put(`/clients/${uuid}`, data);
   }
 
-  delete(id) {
-    return http.delete(`/clients/${id}`);
+  delete(uuid) {
+    return http.delete(`/clients/${uuid}`);
   }
 
   deleteAll() {
     return http.delete(`/clients`);
   }
 
-  findByTitle(title) {
-    return http.get(`/clients?title=${title}`);
+  findByName(lastName) {
+    return http.get(`/clients?title=${lastName}`);
   }
 }
 

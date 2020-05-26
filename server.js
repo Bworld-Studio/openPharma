@@ -1,11 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const mariadb = require('mariadb');
-// const vue = require('vue');
+// const mariadb = require('mariadb');
+const vue = require('vue');
 
-var mariaParams = { host: 'localhost', user:'root', password: 'metal', connectionLimit: 0 };
-const pool = mariadb.createPool( mariaParams );
+// var mariaParams = { host: 'localhost', user:'root', password: 'metal', connectionLimit: 0 };
+// const pool = mariadb.createPool( mariaParams );
 
 // Application creation
 const app = express();
@@ -18,7 +18,6 @@ app.use(cors(corsOptions));
 app.use(bodyParser.json());
 // Parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
-
 
 const dbA = require("./app/models");
 dbA.sequelize.sync();

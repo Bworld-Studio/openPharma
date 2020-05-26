@@ -13,14 +13,14 @@
     "install": "npm install",
     "dev": "nodemon server.js"
   },
-  "main": "app.js",
+  "main": "src/main.js",
   "dependencies": {
     "axios": "^0.19.2",
     "body-parser": "^1.19.0",
     "core-js": "^3.6.4",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "mariadb": "^2.3.1",
+    "mariadb": "^2.4.0",
     "sequelize": "^5.21.10",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0"

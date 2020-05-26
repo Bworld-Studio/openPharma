@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <nav class="navbar navbar-expand navbar-dark bg-dark">
-      <a href="#" class="navbar-brand">bezKoder</a>
+      <a href="#" class="navbar-brand">openPharma</a>
       <div class="navbar-nav mr-auto">
         <li class="nav-item">
           <a href="/clients" class="nav-link">Client</a>
