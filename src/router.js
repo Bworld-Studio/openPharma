@@ -9,18 +9,18 @@ export default new Router({
     {
       path: "/",
       alias: "/clients",
-      name: "client",
-      component: () => import("./components/Clients")
+      name: "clients",
+      component: () => import("./components/Clients/Clients")
     },
     {
       path: "/clients/:id",
       name: "client-details",
-      component: () => import("./components/Client")
+      component: () => import("./components/Client/Client")
     },
     {
       path: "/add",
       name: "add",
-      component: () => import("./components/AddClient")
+      component: () => import("./components/AddClient/AddClient")
     }
   ]
 });

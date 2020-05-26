@@ -6,19 +6,19 @@ class ClientDataService {
   }
 
   get(uuid) {
-    return http.get(`/clients/${uuid}`);
+    return http.get(`clients/${uuid}`);
   }
 
   create(data) {
-    return http.post("/clients", data);
+    return http.post("clients", data);
   }
 
   update(uuid, data) {
-    return http.put(`/clients/${uuid}`, data);
+    return http.put(`clients/${uuid}`, data);
   }
 
   delete(uuid) {
-    return http.delete(`/clients/${uuid}`);
+    return http.delete(`clients/${uuid}`);
   }
 
   deleteAll() {
