@@ -1,4 +1,4 @@
-import ClientDataService from "./services/ClientDataService";
+import ClientDataService from "@/services/ClientDataService";
 
 export default {
 	name: "add-client",
