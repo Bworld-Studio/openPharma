@@ -30,6 +30,6 @@
 		</div>
 	</div>
 </template>
-<script src="./AddClient.js"></script>
-<style src="./AddClient.css"></style>
+<script src="AddClient.js"></script>
+<style src="AddClient.css"></style>
 <!-- <template src="./AddClient.html"></template> -->
