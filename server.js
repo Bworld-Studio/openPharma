@@ -9,7 +9,6 @@ const vue = require('vue');
 
 // Application creation
 const app = express();
-// app.use(serveStatic(__dirname + "/dist"));
 
  // Middleware
 var corsOptions = { origin: "http://localhost:3000" };
@@ -25,10 +24,9 @@ dbA.sequelize.sync();
 
 // Simple route
 
-app.get("/", (req, res) => {
-	// require("./app/routes/client.routes")(app);
+// app.get("/", (req, res) => {
 // 	res.json({ message: "Welcome to openPharma 0.1." });
-});
+// });
 require("./app/routes/client.routes")(app);
 
 // Set port, listen for requests

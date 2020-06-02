@@ -37,5 +37,5 @@
 		<p>Please click on a Client...</p>
 	</div>
 </template>
-<style src="./Client.css"></style>
 <script src="./Client.js"></script>
+<style src="./Client.css"></style>

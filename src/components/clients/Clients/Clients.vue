@@ -50,5 +50,5 @@
 		</div>
 	</div>
 </template>
-<style src="@/Clients.css"></style>
-<script src="@/Clients.js"></script>
+<script src="./Clients.js"></script>
+<style src="./Clients.css"></style>

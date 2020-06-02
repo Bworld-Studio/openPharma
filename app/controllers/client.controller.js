@@ -40,12 +40,16 @@ exports.create = (req, res) => {
 
 // Retrieve all Clients from the database.
 exports.findAll = (req, res) => {
-  debugger;
+  // debugger;
+  console.log(req);
   const numSS = req.query.numSS;
   var condition = numSS ? { numSS: { [Op.like]: `%${numSS}%` } } : null;
 
+  console.log('findAll');
+
   Client.findAll({ where: condition })
     .then(data => {
+      console.log(data);
       res.send(data);
     })
     .catch(err => {
