@@ -1,5 +1,5 @@
 
-<template src="./AddClient.html">
+<template>
 <div class="submit-form">
 	<div v-if="!submitted">
 		<div class="form-group">
@@ -70,5 +70,12 @@ export default {
 			this.client = {};
 		}
 	}
-};</script>
-<style src="./AddClient.css"></style>
+};
+</script>
+<style>
+.list {
+  text-align: left;
+  max-width: 750px;
+  margin: auto;
+}
+</style>
