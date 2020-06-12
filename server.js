@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 // const mariadb = require('mariadb');
-const vue = require('vue');
+// const vue = require('vue');
 
 // var mariaParams = { host: 'localhost', user:'root', password: 'metal', connectionLimit: 0 };
 // const pool = mariadb.createPool( mariaParams );
@@ -23,7 +23,7 @@ const dbA = require("./app/models");
 dbA.sequelize.sync();
 
 // Simple route
-
+app.use('/', history())
 // app.get("/", (req, res) => {
 // 	res.json({ message: "Welcome to openPharma 0.1." });
 // });
