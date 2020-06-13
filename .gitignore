@@ -1,7 +1,8 @@
 .DS_Store
 node_modules
 /dist
-data
+madb
+modb
 openpharma.code-workspace
 
 # local env files

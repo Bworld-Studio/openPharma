@@ -4,7 +4,7 @@ const Op = dbA.Sequelize.Op;
 
 // Create and Save a new Client.
 exports.create = (req, res) => {
-
+  console.log('createClient');
   // Validate request
   if (!req.body.numSS) {
     res.status(400).send({
@@ -42,8 +42,8 @@ exports.create = (req, res) => {
 exports.findAll = (req, res) => {
   debugger;
   console.log(req);
-  const numSS = req.query.numSS;
-  var condition = numSS ? { numSS: { [Op.like]: `%${numSS}%` } } : null;
+  // const numSS = req.query.numSS;
+  // var condition = numSS ? { numSS: { [Op.like]: `%${numSS}%` } } : null;
 
   console.log('findAll');
 
