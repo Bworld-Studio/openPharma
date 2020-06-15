@@ -3,7 +3,7 @@
 		<div class="row">
 			<div class="col-md-6 mx-auto">
 				<h1 class="text-center">Client List</h1>
-				<form v-on:submit.prevent="addNewClient">
+				<form v-on:submit.prevent="addClient">
 					<label for="numSSInput">Numéro SS</label>
 					<input type="text" id="numSSInput" class="form-control" placeholder="Numéro de sécurité sociale"/>
 					<label for="numSSInput">Nom</label>
@@ -11,8 +11,8 @@
 					<label for="numSSInput">Prénom</label>
 					<input type="text" id="firstNameInput" class="form-control" placeholder="Prénom"/>
 
-					<button v-if="this.isEdit == false" type="submit" class="btn btn-success btn-block mt-3" >Sauvegarder</button>
-					<button v-else type="button" class="btn btn-primary btn-block mt-3" v-on:click="updateTask()">Mise à jour</button>
+					<button v-if="this.client.isEdit == false" type="submit" class="btn btn-success btn-block mt-3">Sauvegarder</button>
+					<button v-else type="button" class="btn btn-primary btn-block mt-3" v-on:click="updateClient()">Mise à jour</button>
 				</form>
 
 				<table class="table">
@@ -52,6 +52,7 @@ export default {
 		getClients() {
 			axios.get("/api/client").then(
 				result => {
+					debugger;
 					console.log(result.data);
 					this.clients = result.data;
 				},
@@ -89,7 +90,7 @@ export default {
 		deleteClient(uuid) {
 			axios.delete(`/api/client/${uuid}`)
 				.then(res => {
-					this.taskname = "";
+					this.client = {};
 					this.getTasks();
 					console.log(res);
 				})
