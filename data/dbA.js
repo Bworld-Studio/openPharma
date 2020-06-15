@@ -1,7 +1,6 @@
-const Sequilize = require("sequilize")
-const { Sequelize } = require("sequelize/types")
+const Sequelize = require("sequelize");
 const dbA = {};
-const sequilize = new Sequelize("dba", "root", "", {
+const sequelize = new Sequelize("dba", "root", "metal", {
 	host: "localhost",
 	dialect: "mariadb",
 	operatorsAliases: false,
@@ -11,10 +10,11 @@ const sequilize = new Sequelize("dba", "root", "", {
 		acquire: 30000,
 		idle: 10000
 	}
-})
+});
 
-dbA.Sequelize = Sequelize;
 dbA.sequelize = sequelize;
+dbA.Sequelize = Sequelize;
+
 
 module.exports = dbA;
 

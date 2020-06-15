@@ -1,38 +1,22 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
-// const mariadb = require('mariadb');
-// const vue = require('vue');
+var express = require('express');
+var bodyParser = require('body-parser');
 
-// var mariaParams = { host: 'localhost', user:'root', password: 'metal', connectionLimit: 0 };
-// const pool = mariadb.createPool( mariaParams );
+var cors = require('cors');
+var corsOptions = { origin: "http://localhost:3000" };
+
+var clients = require('./routes/clients')
 
 // Application creation
 var app = express();
-
- // Middleware
-var corsOptions = { origin: "http://localhost:3000" };
 app.use(cors(corsOptions));
 
-// Parse requests of content-type - application/json
-app.use(bodyParser.json());
-// Parse requests of content-type - application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());	// Parse requests of content-type - application/json
+app.use(bodyParser.urlencoded({ extended: false }));	// Parse requests of content-type - application/x-www-form-urlencoded
 
-
-
-var dbA = require("./app/models");
-dbA.sequelize.sync();
-
-// Simple route
-app.use("/", history())
-app.get("/", (req, res) => {
-	res.json({ message: "Welcome to openPharma 0.1." });
-});
-require("./app/routes/client.routes")(app);
+app.use("/api", clients);
 
 // Set port, listen for requests
-const port = process.env.PORT || 3000;
-app.listen(port, () => {
-	console.log('Server started on port' + port);
+const port = 3000;
+app.listen(port, function() {
+	console.log('Server started on port ' + port);
 });
