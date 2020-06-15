@@ -4,7 +4,7 @@ var bodyParser = require('body-parser');
 var cors = require('cors');
 var corsOptions = { origin: "http://localhost:3000" };
 
-var clients = require('./routes/clients')
+var clients = require('./routes/clients');
 
 // Application creation
 var app = express();
