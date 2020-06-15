@@ -42,10 +42,12 @@ export default {
 	data() {
 		return {
 			clients: [],
-			uuid: "",
-			lastName: "",
-			firstName: "",
-			isEdit: false
+			client : {
+				uuid: "",
+				lastName: "",
+				firstName: "",
+				isEdit: false
+			}
 		};
 	},
 	mounted() {
@@ -64,15 +66,37 @@ export default {
 			);
 		},
 		addClient() {
-			axios
-				.post("api/clients", {
-					uuid: this.uuid,
-					lastName: this.lastName,
-					firstName: this.firstName
-				})
+			axios.post("api/client", this.client )
 				.then(res => {
 					this.client = {};
 					this.getClients();
+				})
+				.catch(err => {
+					console.log(err);
+				});
+		},
+		editClient(p_client) {
+			this.client = p_client;
+			this.client.isEdit = true;
+		},
+		updateClient() {
+			axios.put(`/api/clients/${this.client.uuid}`, this.client )
+				.then(res => {
+					this.client = {}
+					this.client.isEdit = false;
+					this.getTasks();
+					console.log(res);
+				})
+				.catch(err => {
+					console.log(err);
+				});
+		},
+		deleteClient(uuid) {
+			axios.delete(`/api/client/${uuid}`)
+				.then(res => {
+					this.taskname = "";
+					this.getTasks();
+					console.log(res);
 				})
 				.catch(err => {
 					console.log(err);
