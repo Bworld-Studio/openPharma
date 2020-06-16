@@ -14,7 +14,7 @@ router.get("/clients", (req, res) => {
 });
 
 // Add Client
-router.post("/client", (req, res) => {
+router.post("/clients", (req, res) => {
 	if (!req.body.numSS) {
 		res.status(400);
 		res.json({ error: "Bad Data" });
@@ -29,7 +29,7 @@ router.post("/client", (req, res) => {
 });
 
 // Delete Client
-router.delete("/client/:uuid", (req, res) => {
+router.delete("/clients/:uuid", (req, res) => {
 	Client.destroy({
 		where: {
 			uuid: req.params.uuid
@@ -44,7 +44,7 @@ router.delete("/client/:uuid", (req, res) => {
 });
 
 // Update Client
-router.put("/client/:uuid", (req, res) => {
+router.put("/clients/:uuid", (req, res) => {
 	if (!req.body.numSS) {
 		res.status(400);
 		res.json({
