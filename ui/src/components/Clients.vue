@@ -22,7 +22,7 @@
 					</span>
 					<span class="row">
 						<button v-if="this.client.isEdit == false" type="submit" class="btn btn-success btn-block mt-3">Sauvegarder</button>
-						<button v-else type="button" class="btn btn-primary btn-block mt-3" v-on:click="updateClient()">Mettre à jour</button>
+						<button v-else v-on:click="updateClient()" type="button" class="btn btn-primary btn-block mt-3" >Mettre à jour</button>
 					</span>
 				</form>
 
