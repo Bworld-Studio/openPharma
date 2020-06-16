@@ -16,13 +16,13 @@
 				</form>
 
 				<table class="table">
-					<tr v-for="(client) in clients" v-bind:key="client.uuid" v-bind:title="client.numSS">
-						<td class="text-left">{{client.lastName}}</td>
-						<td class="text-left">{{client.fistName}}</td>
-						<td class="text-left">{{client.birthDate}}</td>
+					<tr v-for="(line) in clients" v-bind:key="line.uuid" v-bind:title="line.numSS">
+						<td class="text-left">{{line.lastName}}</td>
+						<td class="text-left">{{line.fistName}}</td>
+						<td class="text-left">{{line.birthDate}}</td>
 						<td class="text right">
-							<button class="btn btn-info" v-on:click="editClient(client.uuid)"></button>
-							<button class="btn btn-danger" v-on:click="deleteClient(client.uuid)"></button>
+							<button class="btn btn-info" v-on:click="editClient(line.uuid)"></button>
+							<button class="btn btn-danger" v-on:click="deleteClient(line.uuid)"></button>
 						</td>
 					</tr>
 				</table>
@@ -52,7 +52,6 @@ export default {
 		getClients() {
 			axios.get("/api/client").then(
 				result => {
-					debugger;
 					console.log(result.data);
 					this.clients = result.data;
 				},
