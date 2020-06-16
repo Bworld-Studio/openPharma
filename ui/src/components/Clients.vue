@@ -43,60 +43,60 @@ export default {
 				firstName: "",
 				isEdit: false
 			}
-		};
+		}
 	},
 	mounted() {
-		this.getClients();
+		this.getClients()
 	},
 	methods: {
 		getClients() {
 			axios.get("/api/client").then(
 				result => {
-					console.log(result.data);
-					this.clients = result.data;
+					console.log(result.data)
+					this.clients = result.data
 				},
 				error => {
-					console.error(error);
+					console.error(error)
 				}
-			);
+			)
 		},
 		addClient() {
 			axios.post("api/client", this.client )
 				.then(res => {
-					this.client = {};
-					this.getClients();
+					this.client = {}
+					this.getClients()
 				})
 				.catch(err => {
-					console.log(err);
-				});
+					console.log(err)
+				})
 		},
 		editClient(p_client) {
-			this.client = p_client;
-			this.client.isEdit = true;
+			this.client = p_client
+			this.client.isEdit = true
 		},
 		updateClient() {
 			axios.put(`/api/client/${this.client.uuid}`, this.client )
 				.then(res => {
 					this.client = {}
-					this.client.isEdit = false;
-					this.getTasks();
-					console.log(res);
+					this.client.isEdit = false
+					this.getTasks()
+					console.log(res)
 				})
 				.catch(err => {
 					console.log(err);
-				});
+				})
 		},
 		deleteClient(uuid) {
 			axios.delete(`/api/client/${uuid}`)
 				.then(res => {
-					this.client = {};
-					this.getTasks();
-					console.log(res);
+					this.client = {}
+					this.getTasks()
+					console.log(res)
 				})
 				.catch(err => {
-					console.log(err);
-				});
+					console.log(err)
+				})
 		}
 	}
-};
+}
 </script>
