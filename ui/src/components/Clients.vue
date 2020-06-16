@@ -9,16 +9,16 @@
 						<input v-model="client.numSS" type="text" id="numSSInput" class="form-control" placeholder="Numéro de sécurité sociale"/>
 					</span>
 					<span class="row">
-						<label for="numSSInput">Nom</label>
+						<label for="lastNameInput">Nom</label>
 						<input v-model="client.lastName" type="text" id="lastNameInput" class="form-control" placeholder="Nom"/>
 					</span>
 					<span class="row">
-						<label for="numSSInput">Prénom</label>
+						<label for="firstNameInput">Prénom</label>
 						<input v-model="client.firstName" type="text" id="firstNameInput" class="form-control" placeholder="Prénom"/>
 					</span>
 					<span class="row">
-						<label for="numSSInput">Prénom</label>
-						<input v-model="client.firstName" type="date" id="firstNameInput" class="form-control" placeholder="Prénom"/>
+						<label for="birthDateInput">Date de naissance</label>
+						<input v-model="client.birthDate" type="date" id="birthDateInput" class="form-control" placeholder="Date de naissance"/>
 					</span>
 					<span class="row">
 						<button v-if="this.client.isEdit == false" type="submit" class="btn btn-success btn-block mt-3">Sauvegarder</button>
@@ -32,7 +32,7 @@
 						<td class="text-left">{{line.fistName}}</td>
 						<td class="text-left">{{line.birthDate}}</td>
 						<td class="text right">
-							<button class="btn btn-info" v-on:click="editClient(line.uuid)">Editer</button>
+							<button class="btn btn-info" v-on:click="editClient(line)">Editer</button>
 							<button class="btn btn-danger" v-on:click="deleteClient(line.uuid)">Supprimer</button>
 						</td>
 					</tr>
@@ -79,6 +79,7 @@ export default {
 				.post("api/clients", this.client)
 				.then(res => {
 					this.client = {};
+					this.client.isEdit = false;
 					this.getClients();
 				})
 				.catch(err => {
