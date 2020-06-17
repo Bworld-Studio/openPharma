@@ -6,9 +6,6 @@
 			<li class="nav-item">
 				<a href="/clients" class="nav-link">Clients</a>
 			</li>
-			<li class="nav-item">
-				<a href="/add" class="nav-link">Add</a>
-			</li>
 		</div>
 	</nav>
 
