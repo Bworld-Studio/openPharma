@@ -50,7 +50,7 @@ export default {
 		return {
 			clients: [],
 			client: {
-				// uuid: "",
+				uuid: undefined,
 				numSS: "",
 				cleSS: "",
 				lastName: "",
