@@ -7,6 +7,7 @@
 					<span class="row">
 						<label for="numSSInput">Numéro SS</label>
 						<input v-model="client.numSS" type="text" id="numSSInput" class="form-control" placeholder="Numéro de sécurité sociale"/>
+						<input v-model="client.cleSS" type="number" id="cleSSInput" class="form-control" placeholder="Clé"/>
 					</span>
 					<span class="row">
 						<label for="lastNameInput">Nom</label>
@@ -49,11 +50,13 @@ export default {
 		return {
 			clients: [],
 			client: {
-				uuid: "",
+				// uuid: "",
 				numSS: "",
+				cleSS: "",
 				lastName: "",
 				firstName: "",
 				birthDate: "",
+				active: false,
 				isEdit: false
 			}
 		};
@@ -75,6 +78,7 @@ export default {
 		},
 		addClient() {
 			console.log(this.client);
+			this.client.active = true;
 			axios
 				.post("api/clients", this.client)
 				.then(res => {

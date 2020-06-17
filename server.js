@@ -4,16 +4,18 @@ var bodyParser = require('body-parser');
 var cors = require('cors');
 var corsOptions = { origin: "http://localhost:3000" };
 
-var clients = require('./routes/clients');
+var app = express();	// Application creation
 
-// Application creation
-var app = express();
 app.use(cors(corsOptions));
 
 app.use(bodyParser.json());	// Parse requests of content-type - application/json
 app.use(bodyParser.urlencoded({ extended: false }));	// Parse requests of content-type - application/x-www-form-urlencoded
 
+var clients = require('./routes/clients');
 app.use("/api", clients);
+
+var labels = require('./routes/labels');
+app.use("/api", labels);
 
 // Set port, listen for requests
 const port = 3000;

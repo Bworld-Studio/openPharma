@@ -15,5 +15,5 @@ module.exports = dbA.sequelize.define(
 		firstName: { type: Sequelize.STRING },
 		birthDate: { type: Sequelize.DATEONLY },
 		active: { type: Sequelize.BOOLEAN }
-	}
-);
+	},
+)

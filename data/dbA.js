@@ -1,5 +1,4 @@
 const Sequelize = require("sequelize");
-const dbA = {};
 const sequelize = new Sequelize("dba", "root", "metal", {
 	host: "localhost",
 	dialect: "mariadb",
@@ -12,7 +11,10 @@ const sequelize = new Sequelize("dba", "root", "metal", {
 	}
 });
 
+const dbA = {};
 dbA.sequelize = sequelize;
 dbA.Sequelize = Sequelize;
+
+sequelize.sync()		// Synchronize models with DB
 
 module.exports = dbA;
