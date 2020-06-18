@@ -13,9 +13,6 @@
 		<router-view/>
 	</div>
 </div>
-  <!-- <div id="app">
-    <router-view/>
-  </div> -->
 </template>
 
 <script>
