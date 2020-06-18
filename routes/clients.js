@@ -19,6 +19,7 @@ router.post("/clients", (req, res) => {
 		res.status(400);
 		res.json({ error: "Bad Data" });
 	} else {
+		// if (  )
 		Client.create(req.body).then(() => {
 			res.send("Client Added")
 		})
@@ -29,19 +30,19 @@ router.post("/clients", (req, res) => {
 });
 
 // Delete Client
-router.delete("/clients/:uuid", (req, res) => {
-	Client.destroy({
-		where: {
-			uuid: req.params.uuid
-		}
-	})
-		.then(() => {
-			res.send("Client deleted")
-		})
-		.catch(err => {
-			res.send("Error: " + err)
-		})
-});
+// router.delete("/clients/:uuid", (req, res) => {
+// 	Client.destroy({
+// 		where: {
+// 			uuid: req.params.uuid
+// 		}
+// 	})
+// 		.then(() => {
+// 			res.send("Client deleted")
+// 		})
+// 		.catch(err => {
+// 			res.send("Error: " + err)
+// 		})
+// });
 
 // Update Client
 router.put("/clients/:uuid", (req, res) => {
