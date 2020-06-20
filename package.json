@@ -1,54 +1,54 @@
 {
-  "name": "openpharma",
-  "version": "0.1.0",
-  "private": true,
-  "description": "openPharma Framework",
-  "author": {
-    "name": "Gray Fawkes"
-  },
-  "scripts": {
-    "install": "npm install",
-    "dev": "nodemon server.js"
-  },
-  "main": "server.js",
-  "dependencies": {
-    "body-parser": "^1.19.0",
-    "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "mariadb": "^2.4.0",
-    "sequelize": "^5.21.10"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.4"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended"
-    ],
-    "parserOptions": {
-      "parser": "babel-eslint"
-    },
-    "rules": {}
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead"
-  ],
-  "_id": "openpharma@0.1.0",
-  "bugs": {
-    "url": "https://github.com/Bworld-Studio/openPharma/issues"
-  },
-  "homepage": "https://github.com/Bworld-Studio/openPharma#readme",
-  "license": "MIT",
-  "readme": "ERROR: No README data found!",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Bworld-Studio/openPharma.git"
-  }
+	"name": "openpharma",
+	"version": "0.1.0",
+	"private": true,
+	"description": "openPharma Framework",
+	"author": {
+		"name": "Gray Fawkes"
+	},
+	"scripts": {
+		"install": "npm install",
+		"dev": "nodemon server.js"
+	},
+	"main": "server.js",
+	"dependencies": {
+		"body-parser": "^1.19.0",
+		"cors": "^2.8.5",
+		"express": "^4.17.1",
+		"mariadb": "^2.4.0",
+		"sequelize": "^5.21.10"
+	},
+	"devDependencies": {
+		"nodemon": "^2.0.4"
+	},
+	"eslintConfig": {
+		"root": true,
+		"env": {
+			"node": true
+		},
+		"extends": [
+			"plugin:vue/essential",
+			"eslint:recommended"
+		],
+		"parserOptions": {
+			"parser": "babel-eslint"
+		},
+		"rules": {}
+	},
+	"browserslist": [
+		"> 1%",
+		"last 2 versions",
+		"not dead"
+	],
+	"_id": "openpharma@0.1.0",
+	"bugs": {
+		"url": "https://github.com/Bworld-Studio/openPharma/issues"
+	},
+	"homepage": "https://github.com/Bworld-Studio/openPharma#readme",
+	"license": "MIT",
+	"readme": "ERROR: No README data found!",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Bworld-Studio/openPharma.git"
+	}
 }

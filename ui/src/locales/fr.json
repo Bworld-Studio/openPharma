@@ -2,5 +2,11 @@
 	"openPharma": "OpenPharma FR",
 	"clients": "Patients",
 	"yes-button": "Yes",
-	"no-button": "No!"
+	"no-button": "No",
+	"save-button": "Sauvegarder",
+	"cancel-button": "Annuler",
+	"close-button": "Fermer",
+	"edit-button": "Editer",
+	"delete-button": "Supprimer"
+
 }

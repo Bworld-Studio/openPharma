@@ -14,9 +14,6 @@ app.use(bodyParser.urlencoded({ extended: false }));	// Parse requests of conten
 var clients = require('./routes/clients');
 app.use("/api", clients);
 
-var labels = require('./routes/labels');
-app.use("/api", labels);
-
 // Set port, listen for requests
 const port = 3000;
 app.listen(port, function() {

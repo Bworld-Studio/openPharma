@@ -5,11 +5,11 @@ import Clients from '@/components/Clients'
 Vue.use(Router)
 
 export default new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'Clients',
-      component: Clients
-    }
-  ]
+	routes: [
+		{
+			path: '/',
+			name: 'Clients',
+			component: Clients
+		}
+	]
 })
