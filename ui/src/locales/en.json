@@ -1,6 +1,20 @@
 {
-	"openPharma": "OpenPharma EN",
+	"locale": "English",
+	"openPharma": "OpenPharma FR",
 	"clients": "Clients",
 	"yes-button": "Yes",
-	"no-button": "No!"
+	"no-button": "No",
+	"save-button": "Save",
+	"cancel-button": "Cancel",
+	"close-button": "Close",
+	"edit-button": "Edit",
+	"delete-button": "Delete",
+
+	"numss": "Social Security Number",
+	"cless": "Key",
+	"name-input": "Last name",
+	"firstname-input": "Fist Name",
+	"birthDate-input": "Date of birth",
+	"address-input": "Address",
+	"address2-input": "Additional"
 }

@@ -44,84 +44,84 @@
 </template>
 
 <script>
-	import axios from "axios"
+import axios from 'axios'
 
-	export default {
-		data() {
-			return {
-				clients: [],
-				client: {
-					uuid: undefined,
-					numSS: "",
-					cleSS: "",
-					lastName: "",
-					firstName: "",
-					birthDate: "",
-					active: false,
-					isEdit: false
-				}
-			};
-		},
-		mounted() {
-			this.getClients()
-		},
-		methods: {
-			getClients() {
-				axios.get("/api/clients").then(
-					result => {
-						console.log(result.data)
-						this.clients = result.data
-					},
-					error => {
-						console.error(error)
-					}
-				);
-			},
-			addClient() {
-				console.log(this.client)
-				this.client.active = true
-				axios
-					.post("api/clients", this.client)
-					.then(res => {
-						this.client = {}
-						this.client.isEdit = false
-						this.getClients()
-					})
-					.catch(err => {
-						console.log(err)
-					})
-			},
-			editClient (p_client) {
-				this.client = p_client
-				this.client.isEdit = true
-			},
-			updateClient () {
-				axios
-					.put(`/api/clients/${this.client.uuid}`, this.client)
-					.then(res => {
-						this.client = {}
-						this.client.isEdit = false
-						this.getTasks()
-						console.log(res)
-					})
-					.catch(err => {
-						console.log(err)
-					})
-			},
-			deleteClient (uuid) {
-				axios
-					.delete(`/api/clients/${uuid}`)
-					.then(res => {
-						this.client = {}
-						this.getTasks()
-						console.log(res)
-					})
-					.catch(err => {
-						console.log(err)
-					})
+export default {
+	data () {
+		return {
+			clients: [],
+			client: {
+				uuid: undefined,
+				numSS: '',
+				cleSS: '',
+				lastName: '',
+				firstName: '',
+				birthDate: '',
+				active: false,
+				isEdit: false
 			}
 		}
+	},
+	mounted () {
+		this.getClients()
+	},
+	methods: {
+		getClients () {
+			axios.get('/api/clients').then(
+				result => {
+					console.log(result.data)
+					this.clients = result.data
+				},
+				error => {
+					console.error(error)
+				}
+			)
+		},
+		addClient () {
+			console.log(this.client)
+			this.client.active = true
+			axios
+				.post('api/clients', this.client)
+				.then(res => {
+					this.client = {}
+					this.client.isEdit = false
+					this.getClients()
+				})
+				.catch(err => {
+					console.log(err)
+				})
+		},
+		editClient (pClient) {
+			this.client = pClient
+			this.client.isEdit = true
+		},
+		updateClient () {
+			axios
+				.put(`/api/clients/${this.client.uuid}`, this.client)
+				.then(res => {
+					this.client = {}
+					this.client.isEdit = false
+					this.getTasks()
+					console.log(res)
+				})
+				.catch(err => {
+					console.log(err)
+				})
+		},
+		deleteClient (uuid) {
+			axios
+				.delete(`/api/clients/${uuid}`)
+				.then(res => {
+					this.client = {}
+					this.getTasks()
+					console.log(res)
+				})
+				.catch(err => {
+					console.log(err)
+				})
+		}
 	}
+}
 </script>
 
 <style>
