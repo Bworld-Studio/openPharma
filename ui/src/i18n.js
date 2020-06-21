@@ -1,5 +1,12 @@
 import Vue from 'vue'
 import VueI18n from 'vue-i18n'
+// import getBrowserLocale from "@/util/i18n/get-browser-locale"
+// import { supportedLocalesInclude } from "./util/i18n/supported-locales"
+// import {
+//   getChoiceIndex,
+//   setDefaultChoiceIndexGet
+// } from "./util/i18n/choice-index-for-plural"
+import dateTimeFormats from '@/locales/date-time-formats'
 
 Vue.use(VueI18n)
 
@@ -19,5 +26,6 @@ function loadLocaleMessages () {
 export default new VueI18n({
 	locale: process.env.VUE_APP_I18N_LOCALE || 'fr',
 	fallbackLocale: process.env.VUE_APP_I18N_FALLBACK_LOCALE || 'en',
-	messages: loadLocaleMessages()
+	messages: loadLocaleMessages(),
+	dateTimeFormats
 })

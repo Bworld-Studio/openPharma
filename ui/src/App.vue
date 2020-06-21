@@ -1,13 +1,18 @@
 <template>
 <div id="app">
 	<nav class="navbar navbar-expand navbar-dark bg-dark">
-		<a href="#" class="navbar-brand">{{ $t('openPharma') }}</a>
+		<a href="#" class="navbar-brand">{{ $t('global.openPharma') }}</a>
 		<div class="navbar-nav mr-auto">
 			<li class="nav-item">
-				<a href="/clients" class="nav-link">{{ $t('clients') }}</a>
+				<a href="/clients" class="nav-link">{{ $t('global.clients') }}</a>
 			</li>
 		</div>
 	</nav>
+  <!-- <div class="locale-changer">
+    <select v-model="$i18n.locale">
+      <option v-for="(lang, i) in langs" :key="`Lang${i}`" :value="lang">{{ lang }}</option>
+    </select>
+  </div> -->
 
 	<div class="container mt-3">
 		<router-view/>
