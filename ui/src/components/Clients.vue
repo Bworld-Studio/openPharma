@@ -135,10 +135,10 @@ export default {
 
 <style>
 
-.input_key input[type=number]::-webkit-inner-spin-button, 
-					 input[type=number]::-webkit-outer-spin-button { 
+.input_key { width: 55px; }
+.input_key input[type=number], input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {
+	-moz-appearance: textfield;
   -webkit-appearance: none; 
-  margin: 0; 
-	width: 4em;
+  margin: 0;
 }
 </style>

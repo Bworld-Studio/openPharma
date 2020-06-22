@@ -8,11 +8,7 @@ require('../node_modules/bootstrap/dist/css/bootstrap.css')
 
 Vue.config.productionTip = false
 
-// i18n.locale = 'fr'
-// const i18n = new VueI18n({
-//   locale: 'fr',
-
-// })
+i18n.locale = 'fr'
 
 /* eslint-disable no-new */
 new Vue({
