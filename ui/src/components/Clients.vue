@@ -7,7 +7,7 @@
 					<span class="row">
 						<label for="numSSInput">{{$t('clients.numss-input')}}</label>
 						<input v-model="client.numSS" v-bind:placeholder="$t('clients.numss-input')" type="text" id="numSSInput" class="form-control"/>
-						<input v-model="client.cleSS" v-bind:placeholder="$t('clients.keyss-input')" type="number" id="cleSSInput" class="form-control"/>
+						<input v-model="client.cleSS" v-bind:placeholder="$t('clients.keyss-input')" type="number" id="cleSSInput" class="form-control input_key" min="0" max="99" value="00"/>
 					</span>
 					<span class="row">
 						<label for="lastNameInput">{{$t('clients.name-input')}}</label>
@@ -135,4 +135,10 @@ export default {
 
 <style>
 
+.input_key input[type=number]::-webkit-inner-spin-button, 
+					 input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+	width: 4em;
+}
 </style>
