@@ -2,7 +2,7 @@
 <div id="app">
 	<nav class="navbar navbar-expand navbar-dark bg-dark">
 		<!-- <a href="#" class="navbar-brand">{{ $t('global.openPharma') }}</a> -->
-		<a href="#" class="navbar-brand"><img src="@/assets/ad6e8862-6603-49c0-a272-e438d7ca1a14_200x200.png"></a>
+		<a href="#" class="navbar-brand" style="font-family:'Ubuntu Medium"><img src="@/assets/logo.png" style="margin-right: 8px; width:41px">{{ $t('global.openPharma') }}</a>
 		<div class="navbar-nav mr-auto">
 			<li class="nav-item">
 				<a href="/clients" class="nav-link">{{ $t('global.clients') }}</a>
@@ -19,7 +19,6 @@
   	</div>
 	</nav>
 
-
 	<div class="container mt-3">
 		<router-view/>
 	</div>
@@ -34,8 +33,6 @@ export default {
 		return { langs: [] }
 	},
 	mounted () {
-		console.log(this.$i18n.messages)
-		debugger
 		for (var property in this.$i18n.messages) {
 			if (this.$i18n.messages.hasOwnProperty(property)) {
 				this.langs.push( { 'lang': property, 'locale': this.$i18n.messages[property].global.locale } )
@@ -47,10 +44,18 @@ export default {
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'OpenSans', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+@font-face {
+	font-family: "Ubuntu Medium";
+	src: url("~@/assets/fonts/Ubuntu-Medium.ttf") format('truetype');
+}
+@font-face {
+	font-family: "OpenSans";
+	src: url("~@/assets/fonts/OpenSans-Regular.ttf") format('truetype');
 }
 </style>
