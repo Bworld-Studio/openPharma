@@ -3,7 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import i18n from './i18n'
+import i18n from '@/i18n'
 require('../node_modules/bootstrap/dist/css/bootstrap.css')
 
 Vue.config.productionTip = false
