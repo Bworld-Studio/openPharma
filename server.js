@@ -1,3 +1,5 @@
+var fs = require('fs')
+var https = require('https');
 var express = require('express');
 var bodyParser = require('body-parser');
 
@@ -15,7 +17,12 @@ var clients = require('./routes/clients');
 app.use("/api", clients);
 
 // Set port, listen for requests
-const port = 3000;
-app.listen(port, function() {
-	console.log('Server started on port ' + port);
-});
+// https.createServer({
+// 	key: fs.readFileSync('key.prem'),
+// 	cert: fs.readFileSync('cert.pem')
+// }, app).listen(443)
+
+// const port = 3000;
+// app.listen(port, function() {
+// 	console.log('Server started on port ' + port);
+// });
