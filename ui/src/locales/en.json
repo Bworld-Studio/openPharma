@@ -1,8 +1,9 @@
 {
   "global": {
     "locale": "English",
-    "openPharma": "OpenPharma EN",
-    "clients": "Clients"
+    "openPharma": "OpenPharma",
+    "clients": "Clients",
+    "lang": "en"
   },
   "buttons": {
     "yes-button": "Yes",
@@ -26,9 +27,8 @@
     "city-input": "City",
     "phone-input": "Phone number",
     "cellphone-input": "Cell phone",
-
     "messages": {
-			"error": "Error"
-		}
+      "error": "Error"
+    }
   }
 }

@@ -1,34 +1,34 @@
 {
-	"global": {
-		"locale": "Français",
-		"openPharma": "OpenPharma FR",
-		"clients": "Patients"
-	},
-	"buttons": {
-		"yes-button": "Oui",
-		"no-button": "Non",
-		"save-button": "Sauvegarder",
-		"cancel-button": "Annuler",
-		"close-button": "Fermer",
-		"update-button": "Mettre à jour",
-		"edit-button": "Editer",
-		"delete-button": "Supprimer"
-	},
-	"clients": {
-		"numss-input": "Numéro de Sécurité Sociale",
-		"keyss-input": "Clé",
-		"name-input": "Nom",
-		"firstname-input": "Prénom",
-		"birthdate-input": "Date de naissance",
-		"address-input": "Adresse",
-		"address2-input": "Complément d'adresse",
-		"city-input": "Ville",
-		"zipcode-input": "Code postal",
-		"cellphone-input": "Numéro Portable",
-		"phone-input": "Numéro téléphone",
-
-		"messages": {
-			"error": "Erreur"
-		}
-	}
+  "global": {
+    "lang": "fr",
+    "locale": "Français",
+    "openPharma": "OpenPharma",
+    "clients": "Patients"
+  },
+  "buttons": {
+    "yes-button": "Oui",
+    "no-button": "Non",
+    "save-button": "Sauvegarder",
+    "cancel-button": "Annuler",
+    "close-button": "Fermer",
+    "update-button": "Mettre à jour",
+    "edit-button": "Editer",
+    "delete-button": "Supprimer"
+  },
+  "clients": {
+    "numss-input": "Numéro de Sécurité Sociale",
+    "keyss-input": "Clé",
+    "name-input": "Nom",
+    "firstname-input": "Prénom",
+    "birthdate-input": "Date de naissance",
+    "address-input": "Adresse",
+    "address2-input": "Complément d'adresse",
+    "city-input": "Ville",
+    "zipcode-input": "Code postal",
+    "cellphone-input": "Numéro Portable",
+    "phone-input": "Numéro téléphone",
+    "messages": {
+      "error": "Erreur"
+    }
+  }
 }
