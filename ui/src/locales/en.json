@@ -3,7 +3,8 @@
     "locale": "English",
     "openPharma": "OpenPharma",
     "clients": "Clients",
-    "lang": "en"
+    "lang": "en",
+    "products": "Products"
   },
   "buttons": {
     "yes-button": "Yes",

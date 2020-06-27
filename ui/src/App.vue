@@ -2,10 +2,13 @@
 <div id="app">
 	<nav class="navbar navbar-expand navbar-dark bg-dark">
 		<!-- <a href="#" class="navbar-brand">{{ $t('global.openPharma') }}</a> -->
-		<a href="#" class="navbar-brand" style="font-family:'Ubuntu Medium"><img src="@/assets/logo.png" style="margin-right: 8px; width:41px">{{ $t('global.openPharma') }}</a>
+		<a href="/" class="navbar-brand" style="font-family:'Ubuntu Medium"><img src="@/assets/logo.png" style="margin-right: 8px; width:41px">{{ $t('global.openPharma') }}</a>
 		<div class="navbar-nav mr-auto">
 			<li class="nav-item">
-				<a href="/clients" class="nav-link">{{ $t('global.clients') }}</a>
+				<a href="/clients" class="nav-link">{{ $t('global.views.clients') }}</a>
+			</li>
+			<li class="nav-item">
+				<a href="/products" class="nav-link">{{ $t('global.views.products') }}</a>
 			</li>
 		</div>
     <form class="form-inline my-2 my-lg-0">
@@ -19,14 +22,13 @@
   	</div>
 	</nav>
 
-	<div class="container mt-3">
+	<div class="container">
 		<router-view/>
 	</div>
 </div>
 </template>
 
 <script>
-// import i18n from '@/i18n'
 export default {
 	name: 'App',
 	data() {

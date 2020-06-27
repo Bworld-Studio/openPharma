@@ -28,6 +28,14 @@ router.post("/clients", (req, res) => {
 			})
 	}
 });
+router.get("/clients/:uuid", (req, res) => {
+	Client.findByPk(req.params.uuid).then(client => {
+		res.json(client)
+		})
+		.catch(err => {
+			res.send("Error: " + err)
+		})
+});
 
 // Delete Client
 // router.delete("/clients/:uuid", (req, res) => {
