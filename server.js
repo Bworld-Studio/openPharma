@@ -22,7 +22,7 @@ app.use("/api", clients);
 // 	cert: fs.readFileSync('cert.pem')
 // }, app).listen(443)
 
-// const port = 3000;
-// app.listen(port, function() {
-// 	console.log('Server started on port ' + port);
-// });
+const port = 3000;
+app.listen(port, function() {
+	console.log('Server started on port ' + port);
+});
