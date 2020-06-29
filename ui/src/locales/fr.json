@@ -3,9 +3,21 @@
     "lang": "fr",
     "locale": "Français",
     "openPharma": "OpenPharma",
-    "views": {
-      "clients": "Patients",
-      "products": "Produits"
+    "viewsHome": {
+      "clients": {
+        "title": "Patients",
+        "subtitle": "Patients",
+        "text": "Texte Patients",
+        "action1": "Liste des patients",
+        "action2": "Ajouter un patient"
+      },
+      "products": {
+        "title": "Produits",
+        "subtitle": "Produits",
+        "text": "Texte Produits",
+        "action1": "Liste des produits",
+        "action2": "Ajouter un produit"
+      }
     }
   },
   "buttons": {
