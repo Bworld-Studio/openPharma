@@ -2,9 +2,11 @@
   "global": {
     "locale": "English",
     "openPharma": "OpenPharma",
-    "clients": "Clients",
     "lang": "en",
-    "products": "Products"
+    "views": {
+      "clients": "Clients",
+      "products": "Products"
+    }
   },
   "buttons": {
     "yes-button": "Yes",
