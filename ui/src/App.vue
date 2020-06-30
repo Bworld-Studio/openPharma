@@ -5,25 +5,26 @@
 		<a href="/" class="navbar-brand" style="font-family:'Ubuntu Medium"><img src="@/assets/logo.png" style="margin-right: 8px; width:41px">{{ $t('global.openPharma') }}</a>
 		<div class="navbar-nav mr-auto">
 			<li class="nav-item">
-				<a href="/clients" class="nav-link">{{ $t('global.views.clients') }}</a>
+				<a href="/clients" class="nav-link">{{ $t('global.viewsHome.clients.title') }}</a>
 			</li>
 			<li class="nav-item">
-				<a href="/products" class="nav-link">{{ $t('global.views.products') }}</a>
+				<a href="/products" class="nav-link">{{ $t('global.viewsHome.products.title') }}</a>
 			</li>
 		</div>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  	<div class="navbar-nav mr-auto locale-changer">
-  	  <select v-model="$i18n.locale" class="form-control">
-  	    <option v-for="(lang, i) in langs" :key="`Lang${i}`" :value="lang.lang">{{ lang.locale }}</option>
-  	  </select>
-  	</div>
+		<form class="form-inline my-2 my-lg-0">
+			<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+		</form>
+		<div class="navbar-nav mr-auto locale-changer">
+			<select v-model="$i18n.locale" class="form-control">
+				<option v-for="(lang, i) in langs" :key="`Lang${i}`" :value="lang.lang">{{ lang.locale }}</option>
+			</select>
+		</div>
 	</nav>
 
 	<div class="container-fluid">
 		<router-view/>
+		<!-- <router-view name=""> -->
 	</div>
 </div>
 </template>
@@ -46,11 +47,11 @@ export default {
 
 <style>
 #app {
-  font-family: 'OpenSans', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+	font-family: 'OpenSans', Helvetica, Arial, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-align: center;
+	color: #2c3e50;
 }
 @font-face {
 	font-family: "Ubuntu Medium";
