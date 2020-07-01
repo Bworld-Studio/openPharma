@@ -5,10 +5,10 @@
 		<a href="/" class="navbar-brand" style="font-family:'Ubuntu Medium"><img src="@/assets/logo.png" style="margin-right: 8px; width:41px">{{ $t('global.openPharma') }}</a>
 		<div class="navbar-nav mr-auto">
 			<li class="nav-item">
-				<a href="/clients" class="nav-link">{{ $t('global.viewsHome.clients.title') }}</a>
+				<a href="/Clients" class="nav-link">{{ $t('global.viewsHome.clients.title') }}</a>
 			</li>
 			<li class="nav-item">
-				<a href="/products" class="nav-link">{{ $t('global.viewsHome.products.title') }}</a>
+				<a href="/Products" class="nav-link">{{ $t('global.viewsHome.products.title') }}</a>
 			</li>
 		</div>
 		<form class="form-inline my-2 my-lg-0">
@@ -24,6 +24,8 @@
 
 	<div class="container-fluid">
 		<router-view/>
+		<!-- <router-view name="Client"/> -->
+		<!-- <router-view name="Products"/> -->
 		<!-- <router-view name=""> -->
 	</div>
 </div>

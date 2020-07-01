@@ -19,22 +19,19 @@ router.post("/clients", (req, res) => {
 		res.status(400);
 		res.json({ error: "Bad Data" });
 	} else {
-		// if (  )
 		Client.create(req.body).then(() => {
 			res.send("Client Added")
 		})
-			.catch(err => {
-				res.send("error: " + err)
-			})
+		.catch(err => {
+			res.send("error: " + err)
+		})
 	}
 });
 router.get("/clients/:uuid", (req, res) => {
-	Client.findByPk(req.params.uuid).then(client => {
-		res.json(client)
-		})
-		.catch(err => {
-			res.send("Error: " + err)
-		})
+	Client
+		.findByPk(req.params.uuid)
+		.then(client => { res.json(client) })
+		.catch(err => { res.send("Error: " + err) })
 });
 
 // Delete Client

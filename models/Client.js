@@ -14,6 +14,14 @@ module.exports = dbA.sequelize.define(
 		lastName: { type: Sequelize.STRING },
 		firstName: { type: Sequelize.STRING },
 		birthDate: { type: Sequelize.DATEONLY },
+		address: { type: Sequelize.STRING },
+		address2: { type: Sequelize.STRING },
+		city: { type: Sequelize.STRING }, 
+		zipcode: { type: Sequelize.STRING },
+		cellphone: { type: Sequelize.STRING },
+		phone: { type: Sequelize.STRING },
+		center: { type: Sequelize.STRING },
+		viewAt: { type: Sequelize.DATE },
 		active: { type: Sequelize.BOOLEAN }
 	},
 )

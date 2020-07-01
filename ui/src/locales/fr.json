@@ -42,6 +42,8 @@
 		"zipcode-input": "Code postal",
 		"cellphone-input": "Numéro Portable",
 		"phone-input": "Numéro téléphone",
+		"center-input": "Centre CPAM",
+		"viewAt-input": "Dernière visite",
 		"messages": {
 			"error": "Erreur"
 		}

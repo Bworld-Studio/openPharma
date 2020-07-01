@@ -15,6 +15,6 @@ const dbA = {};
 dbA.sequelize = sequelize;
 dbA.Sequelize = Sequelize;
 
-sequelize.sync()		// Synchronize models with DB
+sequelize.sync({ alter: true })		// Synchronize models with DB
 
 module.exports = dbA;

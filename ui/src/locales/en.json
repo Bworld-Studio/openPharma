@@ -1,49 +1,50 @@
 {
-	"global": {
-		"locale": "English",
-		"lang": "en",
-		"openPharma": "OpenPharma",
-		"viewsHome": {
-			"clients": {
-				"action1": "Patients List",
-				"action2": "Client List",
-				"subtitle": "Client Subtitle",
-				"text": "Client Text",
-				"title": "Clients"
-			},
-			"products": {
-				"action1": "Products List",
-				"action2": "Add a product",
-				"subtitle": "Products",
-				"text": "Products Text",
-				"title": "Product"
-			}
-		}
-	},
-	"buttons": {
-		"yes-button": "Yes",
-		"no-button": "No",
-		"save-button": "Save",
-		"cancel-button": "Cancel",
-		"close-button": "Close",
-		"update-button": "Update",
-		"edit-button": "Edit",
-		"delete-button": "Delete"
-	},
-	"clients": {
-		"numss-input": "Social Security Number",
-		"keyss-input": "Key",
-		"name-input": "Last name",
-		"firstname-input": "Fist Name",
-		"birthdate-input": "Date of birth",
-		"address-input": "healthCenter-input",
-		"address2-input": "Additional",
-		"zipcode-input": "Zip Code",
-		"city-input": "City",
-		"phone-input": "Phone number",
-		"cellphone-input": "Cell phone",
-		"messages": {
-			"error": "Error"
-		}
-	}
+  "global": {
+    "locale": "English",
+    "lang": "en",
+    "openPharma": "OpenPharma",
+    "viewsHome": {
+      "clients": {
+        "action1": "Patients List",
+        "action2": "Client List",
+        "subtitle": "Client Subtitle",
+        "text": "Client Text",
+        "title": "Clients"
+      },
+      "products": {
+        "action1": "Products List",
+        "action2": "Add a product",
+        "subtitle": "Products",
+        "text": "Products Text",
+        "title": "Product"
+      }
+    }
+  },
+  "buttons": {
+    "yes-button": "Yes",
+    "no-button": "No",
+    "save-button": "Save",
+    "cancel-button": "Cancel",
+    "close-button": "Close",
+    "update-button": "Update",
+    "edit-button": "Edit",
+    "delete-button": "Delete"
+  },
+  "clients": {
+    "numss-input": "SS Num",
+    "keyss-input": "Key",
+    "name-input": "Last name",
+    "firstname-input": "Fist Name",
+    "birthdate-input": "Date of birth",
+    "address-input": "healthCenter-input",
+    "address2-input": "Additional",
+    "zipcode-input": "Zip Code",
+    "city-input": "City",
+    "phone-input": "Phone number",
+    "cellphone-input": "Cell phone",
+    "messages": {
+      "error": "Error"
+    },
+    "center-input": "SS Center"
+  }
 }
