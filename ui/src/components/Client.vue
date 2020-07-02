@@ -48,7 +48,7 @@
 		</span>
 		<span class="row">
 			<label for="birthDateInput">{{$t('clients.viewAt-input')}}</label>
-			<input readonly v-model="client.viewAt" type="datetime-local" id="viewAtInput" class="form-control form-control-sm form-control-plaintext" v-bind:placeholder="$t('clients.viewAt-input')"/>
+			<input readonly v-bind="client.viewAt" type="datetime-local" id="viewAtInput" class="form-control form-control-sm form-control-plaintext" v-bind:placeholder="$t('clients.viewAt-input')"/>
 		</span>
 
 		<!--  -->
@@ -106,9 +106,9 @@ export default {
 			axios
 				.get(url).then( result => {
 					this.mapClient(result.data)
-			},
-				error => { console.error(error) }
-			)
+				},
+					error => { console.error(error) }
+				)
 		},
 		mapClient(pClient) {
 			this.client = pClient

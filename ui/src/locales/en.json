@@ -45,6 +45,7 @@
     "messages": {
       "error": "Error"
     },
-    "center-input": "SS Center"
+    "center-input": "SS Center",
+    "viewAt-input": "Last visit"
   }
 }
