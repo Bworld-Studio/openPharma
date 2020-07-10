@@ -22,3 +22,10 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw?
+
+# Data files
+cip
+cis
+compo
+cpd
+gener

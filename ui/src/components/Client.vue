@@ -48,7 +48,7 @@
 		</span>
 		<span class="row">
 			<label for="birthDateInput">{{$t('clients.viewAt-input')}}</label>
-			<input readonly v-bind="client.viewAt" type="datetime-local" id="viewAtInput" class="form-control form-control-sm form-control-plaintext" v-bind:placeholder="$t('clients.viewAt-input')"/>
+			<input readonly v-model="client.viewAt" type="text" id="viewAtInput" class="form-control form-control-sm form-control-plaintext" v-bind:placeholder="$t('clients.viewAt-input')"/>
 		</span>
 
 		<!--  -->
@@ -68,32 +68,32 @@
 import axios from 'axios'
 
 export default {
-	name: "Client",
-	data() {
+	name: 'Client',
+	data () {
 		return {
 			uuid: '',
 			client: {
 				uuid: undefined,
-				numSS: "",
-				cleSS: "",
-				lastName: "",
-				firstName: "",
-				birthDate: "",
-				address: "",
-				address2: "",
-				city: "",
-				zipcode: "",
-				cellphone: "",
-				phone: "",
-				center: "",
-				viewAt: "",
+				numSS: '',
+				cleSS: '',
+				lastName: '',
+				firstName: '',
+				birthDate: '',
+				address: '',
+				address2: '',
+				city: '',
+				zipcode: '',
+				cellphone: '',
+				phone: '',
+				center: '',
+				viewAt: '',
 				active: false,
 				isEdit: false
 			}
-		};
+		}
 	},
-	mounted() {
-		if ( this.$route.params.uuid != undefined ) {
+	mounted () {
+		if (this.$route.params.uuid !== undefined) {
 			this.uuid = this.$route.params.uuid
 			this.getClient(this.uuid)
 		} else {
@@ -101,30 +101,33 @@ export default {
 		}
 	},
 	methods: {
-		getClient(uuid) {
-			var url = "/api/clients/"+uuid
-			axios
-				.get(url).then( result => {
+		getClient (uuid) {
+			var url = '/api/clients/' + uuid
+			axios.get(url)
+				.then(result => {
 					this.mapClient(result.data)
 				},
-					error => { console.error(error) }
+				error => { console.error(error) }
 				)
 		},
-		mapClient(pClient) {
+		mapClient (pClient) {
+			debugger
+			console.log(pClient.birthDate)
 			this.client = pClient
-			this.client.viewAt = new Date()
+			var viewAt = new Date()
+			this.client.viewAt = viewAt
 		},
-		addClient() {
+		addClient () {
 			this.client.active = true
 
 			axios
-				.post("api/clients", this.client).then(res => {
+				.post('api/clients', this.client).then(res => {
 					this.client = {}
 					this.client.isEdit = false
 					this.getClients()
 				}).catch(err => { console.log(err) })
 		},
-		updateClient() {
+		updateClient () {
 			axios
 				.put(`/api/clients/${this.client.uuid}`, this.client).then(res => {
 					this.client = {}
@@ -134,7 +137,7 @@ export default {
 				})
 				.catch(err => { console.log(err) })
 		},
-		deleteClient(uuid) {
+		deleteClient (uuid) {
 			axios
 				.delete(`/api/clients/${uuid}`).then(res => {
 					this.client = {}
@@ -143,7 +146,7 @@ export default {
 				}).catch(err => { console.log(err) })
 		}
 	}
-};
+}
 </script>
 
 <style>
@@ -152,7 +155,7 @@ export default {
 .input_key { width: 3em; }
 .input_key input[type=number], input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {
 	-moz-appearance: textfield;
-	-webkit-appearance: none; 
+	-webkit-appearance: none;
 	margin: 0;
 }
 
