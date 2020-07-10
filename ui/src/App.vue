@@ -10,6 +10,9 @@
 			<li class="nav-item">
 				<a href="/Products" class="nav-link">{{ $t('global.viewsHome.products.title') }}</a>
 			</li>
+			<li class="nav-item">
+				<a href="/Updates" class="nav-link">Updates</a>
+			</li>
 		</div>
 		<form class="form-inline my-2 my-lg-0">
 			<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -34,13 +37,13 @@
 <script>
 export default {
 	name: 'App',
-	data() {
+	data () {
 		return { langs: [] }
 	},
 	mounted () {
 		for (var property in this.$i18n.messages) {
 			if (this.$i18n.messages.hasOwnProperty(property)) {
-				this.langs.push( { 'lang': property, 'locale': this.$i18n.messages[property].global.locale } )
+				this.langs.push({ 'lang': property, 'locale': this.$i18n.messages[property].global.locale })
 			}
 		}
 	}

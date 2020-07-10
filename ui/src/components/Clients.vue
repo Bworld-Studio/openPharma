@@ -20,13 +20,14 @@
 </template>
 
 <script>
-import axios from 'axios'
+const axios = require('axios')
+// import axios from 'axios'
 
 export default {
 	name: 'Clients',
 	data () {
 		return {
-			clients: [],
+			clients: []
 			// client: {
 			// 	uuid: undefined,
 			// 	numSS: '',
@@ -44,7 +45,6 @@ export default {
 	},
 	methods: {
 		getClients () {
-
 			// Call API
 			axios.get('/api/clients').then(
 				result => {
@@ -77,7 +77,7 @@ export default {
 			// this.client = pClient
 			// this.client.lastName = this.client.lastName.toUpperCase()
 			// this.client.isEdit = true
-		},
+		}
 		// updateClient () {
 
 		// 	// Call API
@@ -94,7 +94,7 @@ export default {
 		// 		})
 		// },
 		// deleteClient (uuid) {
-			
+
 		// 	// Call API
 		// 	axios
 		// 		.delete(`/api/clients/${uuid}`)
@@ -116,7 +116,7 @@ export default {
 .input_key { width: 55px; }
 .input_key input[type=number], input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {
 	-moz-appearance: textfield;
-  -webkit-appearance: none; 
+  -webkit-appearance: none;
   margin: 0;
 }
 

@@ -1,38 +1,32 @@
-var express = require("express");
-var router = express.Router();
+var express = require('express')
+var router = express.Router()
 
-const Client = require("../models/Client");
+const Client = require('../models/Client')
 
 // Get all Clients
-router.get("/clients", (req, res) => {
-	Client.findAll().then(clients => {
-		res.json(clients)
-	})
-		.catch(err => {
-			res.send("Error: " + err)
-		})
-});
+router.get('/clients', (req, res) => {
+	Client
+		.findAll().then(clients => { res.json(clients) })
+		.catch(err => { res.send('Error: ' + err) })
+})
 
 // Add Client
-router.post("/clients", (req, res) => {
+router.post('/clients', (req, res) => {
 	if (!req.body.numSS) {
-		res.status(400);
-		res.json({ error: "Bad Data" });
+		res.status(400)
+		res.json({ error: 'Bad Data' })
 	} else {
-		Client.create(req.body).then(() => {
-			res.send("Client Added")
-		})
-		.catch(err => {
-			res.send("error: " + err)
-		})
+		Client
+			.create(req.body).then(() => { res.send('Client Added') })
+			.catch(err => { res.send('error: ' + err) })
 	}
-});
-router.get("/clients/:uuid", (req, res) => {
+})
+router.get('/clients/:uuid', (req, res) => {
 	Client
 		.findByPk(req.params.uuid)
 		.then(client => { res.json(client) })
-		.catch(err => { res.send("Error: " + err) })
-});
+		.catch(err => { res.send('Error: ' + err) })
+})
 
 // Delete Client
 // router.delete("/clients/:uuid", (req, res) => {
@@ -50,22 +44,21 @@ router.get("/clients/:uuid", (req, res) => {
 // });
 
 // Update Client
-router.put("/clients/:uuid", (req, res) => {
+router.put('/clients/:uuid', (req, res) => {
 	if (!req.body.numSS) {
-		res.status(400);
+		res.status(400)
 		res.json({
-			error: "Bad Data"
+			error: 'Bad Data'
 		})
 	} else {
-		Client.update(
-			req.body,
-			{ where: { uuid: req.params.uuid } }
-		)
-			.then(() => {
-				res.send("Task Updated")
-			})
+		Client
+			.update(
+				req.body,
+				{ where: { uuid: req.params.uuid } }
+			)
+			.then(() => { res.send('Task Updated') })
 			.error(err => res.send(err))
 	}
-});
+})
 
-module.exports = router;
+module.exports = router
