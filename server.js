@@ -31,6 +31,7 @@ client.connect(function(err) {
 	assert.equal(null, err)
 	console.log('Connected successfully to server')
 
+	// eslint-disable-next-line no-unused-vars
 	const dbO = client.db(dbName)
 
 	client.close()
