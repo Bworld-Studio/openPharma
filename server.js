@@ -14,28 +14,28 @@ app.use(bodyParser.json())	// Parse requests of content-type - application/json
 app.use(bodyParser.urlencoded({ extended: false }))	// Parse requests of content-type - application/x-www-form-urlencoded
 
 // MongoDB
-const MongoClient = require('mongodb').MongoClient
-const assert = require('assert')
+// const MongoClient = require('mongodb').MongoClient
+// const assert = require('assert')
 
 // Connection URL
-const url = 'mongodb://localhost:27017'
+// const url = 'mongodb://localhost:27017'
 
 // Database Name
-const dbName = 'dbo'
+// const dbName = 'dbo'
 
 // Create a new MongoClient
-const client = new MongoClient(url)
+// const client = new MongoClient(url)
 
 // Use connect method to connect to the Server
-client.connect(function(err) {
-	assert.equal(null, err)
-	console.log('Connected successfully to server')
+// client.connect(function(err) {
+// 	assert.equal(null, err)
+// 	console.log('Connected successfully to server')
 
-	// eslint-disable-next-line no-unused-vars
-	const dbO = client.db(dbName)
+// 	// eslint-disable-next-line no-unused-vars
+// 	const dbO = client.db(dbName)
 
-	client.close()
-})
+// 	client.close()
+// })
 
 const clients = require('./routes/clients')
 app.use('/api', clients)
