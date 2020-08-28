@@ -31,7 +31,6 @@ app.use(bodyParser.urlencoded({ extended: false }))	// Parse requests of content
 // 	assert.equal(null, err)
 // 	console.log('Connected successfully to server')
 
-// 	// eslint-disable-next-line no-unused-vars
 // 	const dbO = client.db(dbName)
 
 // 	client.close()
