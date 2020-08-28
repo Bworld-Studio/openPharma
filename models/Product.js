@@ -27,9 +27,9 @@ const BDPM_Cip = dbA.sequelize.define('BDPM_Cip', { // eslint-disable-line no-al
 	commercialState: { type: Sequelize.STRING(40) },
 	commercialDate: { type: Sequelize.DATEONLY },
 	reimbursementRate: { type: Sequelize.DECIMAL(3, 2) },
-	price: { type: Sequelize.DECIMAL(10, 2) },
-	price1: { type: Sequelize.DECIMAL(10, 2) },
-	price2: { type: Sequelize.DECIMAL(10, 2) },
+	priceTTC: { type: Sequelize.DECIMAL(10, 2) },
+	reimbursementAmount: { type: Sequelize.DECIMAL(10, 2) },
+	priceHD: { type: Sequelize.DECIMAL(10, 2) },
 	reimbursementText: { type: Sequelize.TEXT }
 }, {
 	freezeTableName: true
