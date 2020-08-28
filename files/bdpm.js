@@ -12,7 +12,7 @@ const Product = require('../models/Product')
 
 async function downloadFile (url, filename) {
 	return new Promise((resolve, reject) => {
-		console.log('Download file ' + filename)
+		console.log('Download file: ' + filename)
 		var dest = path.join(__dirname, 'bdpm', filename)	// eslint-disable-line no-alert, no-undef
 		const file = fs.createWriteStream(path.join(__dirname, 'bdpm', filename), { flags: 'w' }) // eslint-disable-line no-alert, no-undef
 
@@ -27,6 +27,7 @@ async function downloadFile (url, filename) {
 		})
 
 		request.on('error', err => {
+			console.log('Request Error:' + err)
 			file.close()
 			fs.unlink(dest, () => {}) // Delete temp file
 			reject(err.message)
@@ -38,12 +39,13 @@ async function downloadFile (url, filename) {
 		})
 
 		file.on('error', err => {
+			console.log('File Error:' + err)
 			file.close()
 			if (err.code === 'EEXIST') {
 				reject('File already exists')
 			} else {
-				fs.unlink(dest, () => {}) // Delete temp file
-				reject(err.message)
+				// fs.unlink(dest, () => {}) // Delete temp file
+				// reject(err.message)
 			}
 		})
 	})
@@ -51,10 +53,13 @@ async function downloadFile (url, filename) {
 
 async function uploadToDatabaseA (dest, filename) { // eslint-disable-line no-alert, no-unused-vars
 	new Promise((resolve, reject) => {
-		console.log('Upload files to database')
+		
 		fs.readFile(path.join(__dirname, 'bdpm', filename), 'latin1', (err, data) => {	// eslint-disable-line no-alert, no-undef
-			// console.log(Product)
-			if (err) { return reject(err) }
+			if (err) {
+				console.log(err)
+				return reject(err)
+			}
+			if (!err ) console.log('Upload files to database')
 			let array = []
 			data.split('\n').map(row => {
 				let rowArray = row.split('\t')
@@ -79,15 +84,14 @@ async function uploadToDatabaseA (dest, filename) { // eslint-disable-line no-al
 					// updateTableLine(Product.BDPM_Cis, line.cis, line )
 					// let model = Product.BDPM_Cis
 
-					// Product.BDPM_Cis
-					// 	.findByPk(line.cis).then( function (product) {
-					// 		if (product) product.update(line)
-
-					// 		model.create(line)
-					// 	})
-					// .catch(function (product) {	// IF record doesn't exist --> Create
-					// 	product.create(line)
-					// })
+					Product.BDPM_Cis
+						.findByPk(line.cis).then( function (product) {
+							if (product) product.update(line)
+							// model.create(line)
+						})
+						.catch(function (product) {	// IF record doesn't exist --> Create
+							product.create(line)
+						})
 					// Product.BDPM_Cis.create({
 					// 	cis: rowArray[0].trim(),
 					// 	labelMed: rowArray[1].trim(),
@@ -104,16 +108,17 @@ async function uploadToDatabaseA (dest, filename) { // eslint-disable-line no-al
 					// })
 				}
 			})
-			Product.BDPM_Cis
-				.destroy({
-					where: {},
-					truncate: true
-				})
+			// console.log(Product.BDPM_Cis)
+			// Product.BDPM_Cis
+			// 	.destroy({
+			// 		where: {},
+			// 		truncate: true
+			// 	})
 			Product.BDPM_Cis
 				.bulkCreate(array, { raw: true })
-				// .then( function(product) {
-				// 	console.log('Update done')
-				// })
+				.then( function() {
+					console.log('Update done')
+				})
 			// Product.BDPM_Cis.save()
 			// Product.BDPM_Cis
 			// 	.findByPk(line.cis).then( function (product) {
@@ -121,9 +126,9 @@ async function uploadToDatabaseA (dest, filename) { // eslint-disable-line no-al
 
 			// 		model.create(line)
 			// 	})
-			// .catch(function (product) {	// IF record doesn't exist --> Create
-			// 	product.create(line)
-			// })
+				.catch(function () {	// IF record doesn't exist --> Create
+					// Product.create(line)
+				})
 			// Product.BDPM_Cis.create({
 			// 	cis: rowArray[0].trim(),
 			// 	labelMed: rowArray[1].trim(),
@@ -143,7 +148,6 @@ async function uploadToDatabaseA (dest, filename) { // eslint-disable-line no-al
 }
 
 exports.downloadFiles = function() {
-	console.log('Download files')
 	// uploadToDatabaseA(cis, 'cis' )
 	downloadFile(cis, 'cis')
 	// downloadFile(cip, 'cip')

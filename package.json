@@ -8,7 +8,8 @@
 	},
 	"scripts": {
 		"install": "npm install",
-		"dev": "nodemon server.js"
+		"dev": "nodemon server.js",
+		"debug": "nodemon --inspect server.js"
 	},
 	"main": "server.js",
 	"dependencies": {
@@ -20,7 +21,7 @@
 		"mariadb": "^2.4.0",
 		"mongodb": "^3.5.9",
 		"path": "^0.12.7",
-		"sequelize": "^5.21.10"
+		"sequelize": "^6.3.4"
 	},
 	"devDependencies": {
 		"eslint": "^7.4.0",

@@ -2,6 +2,10 @@ const Sequelize = require('sequelize')
 const sequelize = new Sequelize('dba', 'root', 'metal', {
 	host: 'localhost',
 	dialect: 'mariadb',
+	dialectOptions: {
+		// Your mariadb options here
+		connectTimeout: 0
+	},
 	operatorsAliases: false,
 	pool: {
 		max: 5,
