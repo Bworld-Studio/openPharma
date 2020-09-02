@@ -27,19 +27,20 @@ async function downloadFile (url, filename) {
 		})
 
 		request.on('error', err => {
-			console.log('Request Error:' + err)
+			console.log('Request Error: ' + err)
 			file.close()
 			fs.unlink(dest, () => {}) // Delete temp file
 			reject(err.message)
 		})
 
 		file.on('finish', () => {
+			console.log('File downloaded')
 			uploadToDatabaseA(dest, filename)
 			resolve()
 		})
 
 		file.on('error', err => {
-			console.log('File Error:' + err)
+			console.log('File Error: ' + err)
 			file.close()
 			if (err.code === 'EEXIST') {
 				reject('File already exists')
@@ -56,10 +57,11 @@ async function uploadToDatabaseA (dest, filename) { // eslint-disable-line no-al
 		
 		fs.readFile(path.join(__dirname, 'bdpm', filename), 'latin1', (err, data) => {	// eslint-disable-line no-alert, no-undef
 			if (err) {
-				console.log(err)
+				// console.log('File read error')
+				console.log('File read: ' + err)
 				return reject(err)
 			}
-			if (!err ) console.log('Upload files to database')
+			if (!err) console.log('Upload files to database')
 			let array = []
 			data.split('\n').map(row => {
 				let rowArray = row.split('\t')
@@ -108,27 +110,20 @@ async function uploadToDatabaseA (dest, filename) { // eslint-disable-line no-al
 					// })
 				}
 			})
+			Product.BDPM_Cis.bulkCreate(array, { raw: true })
+			// .then( function() {
+			// 	console.log('Update done')
+			// })
+			// .catch(function (err) {	// IF record doesn't exist --> Create
+			// 	console.log('Upload error: '+ err)
+			// 	// Product.create(line)
+			// })
 			// console.log(Product.BDPM_Cis)
 			// Product.BDPM_Cis
 			// 	.destroy({
 			// 		where: {},
 			// 		truncate: true
 			// 	})
-			Product.BDPM_Cis
-				.bulkCreate(array, { raw: true })
-				.then( function() {
-					console.log('Update done')
-				})
-			// Product.BDPM_Cis.save()
-			// Product.BDPM_Cis
-			// 	.findByPk(line.cis).then( function (product) {
-			// 		if (product) product.update(line)
-
-			// 		model.create(line)
-			// 	})
-				.catch(function () {	// IF record doesn't exist --> Create
-					// Product.create(line)
-				})
 			// Product.BDPM_Cis.create({
 			// 	cis: rowArray[0].trim(),
 			// 	labelMed: rowArray[1].trim(),

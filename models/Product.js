@@ -11,7 +11,7 @@ const BDPM_Cis = dbG.sequelize.define('BDPM_Cis', { // eslint-disable-line no-al
 	commercialState: { type: Sequelize.STRING(20) },
 	aamDate: { type: Sequelize.DATEONLY },
 	bdmStatus: { type: Sequelize.STRING },
-	numEUAuth: { type: Sequelize.STRING(11) },
+	numEUAuth: { type: Sequelize.STRING },
 	holder: { type: Sequelize.STRING },
 	reinforcedMonitoring: { type: Sequelize.STRING }
 }, {
