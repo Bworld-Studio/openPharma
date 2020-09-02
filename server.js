@@ -39,8 +39,8 @@ app.use(bodyParser.urlencoded({ extended: false }))	// Parse requests of content
 const clients = require('./routes/clients')
 app.use('/api', clients)
 
-const Client = require('./routes/client')
-app.use('/api', Client)
+// const Client = require('./routes/client')
+// app.use('/api', Client)
 
 const products = require('./routes/products')
 app.use('/api', products)

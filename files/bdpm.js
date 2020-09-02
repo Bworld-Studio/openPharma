@@ -84,14 +84,14 @@ async function uploadToDatabaseA (dest, filename) { // eslint-disable-line no-al
 					// updateTableLine(Product.BDPM_Cis, line.cis, line )
 					// let model = Product.BDPM_Cis
 
-					Product.BDPM_Cis
-						.findByPk(line.cis).then( function (product) {
-							if (product) product.update(line)
-							// model.create(line)
-						})
-						.catch(function (product) {	// IF record doesn't exist --> Create
-							product.create(line)
-						})
+					// Product.BDPM_Cis
+					// 	.findByPk(line.cis).then( function (product) {
+					// 		if (product) product.update(line)
+					// 		// model.create(line)
+					// 	})
+					// 	.catch(function (product) {	// IF record doesn't exist --> Create
+					// 		product.create(line)
+					// 	})
 					// Product.BDPM_Cis.create({
 					// 	cis: rowArray[0].trim(),
 					// 	labelMed: rowArray[1].trim(),

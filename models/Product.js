@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize')
-const dbA = require('../data/dbA.js')
+const dbG = require('../data/dbG.js')
 
-const BDPM_Cis = dbA.sequelize.define('BDPM_Cis', { // eslint-disable-line no-alert, no-unused-vars
+const BDPM_Cis = dbG.sequelize.define('BDPM_Cis', { // eslint-disable-line no-alert, no-unused-vars
 	cis: { type: Sequelize.INTEGER(8), primaryKey: true },
 	labelMed: { type: Sequelize.TEXT },
 	pharmaForm: { type: Sequelize.STRING },
@@ -18,7 +18,7 @@ const BDPM_Cis = dbA.sequelize.define('BDPM_Cis', { // eslint-disable-line no-al
 	freezeTableName: true
 })
 
-const BDPM_Cip = dbA.sequelize.define('BDPM_Cip', { // eslint-disable-line no-alert, no-unused-vars
+const BDPM_Cip = dbG.sequelize.define('BDPM_Cip', { // eslint-disable-line no-alert, no-unused-vars
 	cis: { type: Sequelize.INTEGER(8) },
 	cip7: { type: Sequelize.INTEGER(7), primaryKey: true },
 	cip13: { type: Sequelize.INTEGER(13) },
@@ -35,7 +35,7 @@ const BDPM_Cip = dbA.sequelize.define('BDPM_Cip', { // eslint-disable-line no-al
 	freezeTableName: true
 })
 
-const BDPM_Compo = dbA.sequelize.define('BDPM_Compo', { // eslint-disable-line no-alert, no-unused-vars
+const BDPM_Compo = dbG.sequelize.define('BDPM_Compo', { // eslint-disable-line no-alert, no-unused-vars
 	cis: { type: Sequelize.INTEGER(8), primaryKey: true },
 	label: { type: Sequelize.TEXT },
 	substanceID: { type: Sequelize.INTEGER(8) },
@@ -48,7 +48,7 @@ const BDPM_Compo = dbA.sequelize.define('BDPM_Compo', { // eslint-disable-line n
 	freezeTableName: true
 })
 
-const BDPM_Gener = dbA.sequelize.define('BDPM_Gener', { // eslint-disable-line no-alert, no-unused-vars
+const BDPM_Gener = dbG.sequelize.define('BDPM_Gener', { // eslint-disable-line no-alert, no-unused-vars
 	id: { type: Sequelize.INTEGER(4), primaryKey: true },
 	label: { type: Sequelize.TEXT },
 	cis: { type: Sequelize.INTEGER(8) },
@@ -58,7 +58,7 @@ const BDPM_Gener = dbA.sequelize.define('BDPM_Gener', { // eslint-disable-line n
 	freezeTableName: true
 })
 
-const BDPM_Cpd = dbA.sequelize.define('BDPM_Cpd', { // eslint-disable-line no-alert, no-unused-vars
+const BDPM_Cpd = dbG.sequelize.define('BDPM_Cpd', { // eslint-disable-line no-alert, no-unused-vars
 	cis: { type: Sequelize.INTEGER(8), primaryKey: true },
 	condition: { type: Sequelize.STRING(1000) },
 }, {
