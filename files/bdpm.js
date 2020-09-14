@@ -35,7 +35,7 @@ async function downloadFile (url, filename) {
 
 		file.on('finish', () => {
 			console.log('File downloaded')
-			uploadToDatabaseA(dest, filename)
+			uploadToDatabaseG(dest, filename)
 			resolve()
 		})
 
@@ -52,9 +52,9 @@ async function downloadFile (url, filename) {
 	})
 }
 
-async function uploadToDatabaseA (dest, filename) { // eslint-disable-line no-alert, no-unused-vars
+async function uploadToDatabaseG (dest, filename) { // eslint-disable-line no-alert, no-unused-vars
 	new Promise((resolve, reject) => {
-		
+
 		fs.readFile(path.join(__dirname, 'bdpm', filename), 'latin1', (err, data) => {	// eslint-disable-line no-alert, no-undef
 			if (err) {
 				// console.log('File read error')
@@ -82,68 +82,15 @@ async function uploadToDatabaseA (dest, filename) { // eslint-disable-line no-al
 						reinforcedMonitoring: rowArray[11].trim()
 					}
 					array.push(line)
-					
-					// updateTableLine(Product.BDPM_Cis, line.cis, line )
-					// let model = Product.BDPM_Cis
-
-					// Product.BDPM_Cis
-					// 	.findByPk(line.cis).then( function (product) {
-					// 		if (product) product.update(line)
-					// 		// model.create(line)
-					// 	})
-					// 	.catch(function (product) {	// IF record doesn't exist --> Create
-					// 		product.create(line)
-					// 	})
-					// Product.BDPM_Cis.create({
-					// 	cis: rowArray[0].trim(),
-					// 	labelMed: rowArray[1].trim(),
-					// 	pharmaForm: rowArray[2].trim(),
-					// 	medRoute: rowArray[3].trim(),
-					// 	adminStatus: rowArray[4].trim(),
-					// 	procedureType: rowArray[5].trim(),
-					// 	commercialState: rowArray[6].trim(),
-					// 	aamDate: aamDate,
-					// 	bdmStatus: rowArray[8].trim(),
-					// 	numEUAuth: rowArray[9].trim(),
-					// 	holder: rowArray[10].trim(),
-					// 	reinforcedMonitoring: rowArray[11].trim()
-					// })
 				}
 			})
 			Product.BDPM_Cis.bulkCreate(array, { raw: true })
-			// .then( function() {
-			// 	console.log('Update done')
-			// })
-			// .catch(function (err) {	// IF record doesn't exist --> Create
-			// 	console.log('Upload error: '+ err)
-			// 	// Product.create(line)
-			// })
-			// console.log(Product.BDPM_Cis)
-			// Product.BDPM_Cis
-			// 	.destroy({
-			// 		where: {},
-			// 		truncate: true
-			// 	})
-			// Product.BDPM_Cis.create({
-			// 	cis: rowArray[0].trim(),
-			// 	labelMed: rowArray[1].trim(),
-			// 	pharmaForm: rowArray[2].trim(),
-			// 	medRoute: rowArray[3].trim(),
-			// 	adminStatus: rowArray[4].trim(),
-			// 	procedureType: rowArray[5].trim(),
-			// 	commercialState: rowArray[6].trim(),
-			// 	aamDate: aamDate,
-			// 	bdmStatus: rowArray[8].trim(),
-			// 	numEUAuth: rowArray[9].trim(),
-			// 	holder: rowArray[10].trim(),
-			// 	reinforcedMonitoring: rowArray[11].trim()
-			// })
 		})
 	})
 }
 
 exports.downloadFiles = function() {
-	// uploadToDatabaseA(cis, 'cis' )
+	// uploadToDatabaseG(cis, 'cis' )
 	downloadFile(cis, 'cis')
 	// downloadFile(cip, 'cip')
 	// downloadFile(compo, 'compo')
