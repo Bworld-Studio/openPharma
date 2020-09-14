@@ -66,7 +66,7 @@ async function uploadToDatabaseG (dest, filename) { // eslint-disable-line no-al
 			if ( filename === 'cis' ) {
 				data.split('\n').map(row => {
 					let rowArray = row.split('\t')
-					if ( filename === 'cis' && rowArray[0] !== '' ) {	// CIS file
+					if ( rowArray[0] !== '' ) {
 						let aamDate = rowArray[7].substring(6,10) + '-' + rowArray[7].substring(3,5) + '-' + rowArray[7].substring(0,2)
 						let line = {
 							cis: rowArray[0].trim(),
