@@ -57,34 +57,136 @@ async function uploadToDatabaseG (dest, filename) { // eslint-disable-line no-al
 
 		fs.readFile(path.join(__dirname, 'bdpm', filename), 'latin1', (err, data) => {	// eslint-disable-line no-alert, no-undef
 			if (err) {
-				// console.log('File read error')
 				console.log('File read: ' + err)
 				return reject(err)
 			}
-			if (!err) console.log('Upload files to database')
+			if (!err) console.log('Upload file' + filename + 'to database')
 			let array = []
-			data.split('\n').map(row => {
-				let rowArray = row.split('\t')
-				if ( filename === 'cis' && rowArray[0] !== '' ) {	// CIS file
-					let aamDate = rowArray[7].substring(6,10) + '-' + rowArray[7].substring(3,5) + '-' + rowArray[7].substring(0,2)
-					let line = {
-						cis: rowArray[0].trim(),
-						labelMed: rowArray[1].trim(),
-						pharmaForm: rowArray[2].trim(),
-						medRoute: rowArray[3].trim(),
-						adminStatus: rowArray[4].trim(),
-						procedureType: rowArray[5].trim(),
-						commercialState: rowArray[6].trim(),
-						aamDate: aamDate,
-						bdmStatus: rowArray[8].trim(),
-						numEUAuth: rowArray[9].trim(),
-						holder: rowArray[10].trim(),
-						reinforcedMonitoring: rowArray[11].trim()
+			// CIS file
+			if ( filename === 'cis' ) {
+				data.split('\n').map(row => {
+					let rowArray = row.split('\t')
+					if ( filename === 'cis' && rowArray[0] !== '' ) {	// CIS file
+						let aamDate = rowArray[7].substring(6,10) + '-' + rowArray[7].substring(3,5) + '-' + rowArray[7].substring(0,2)
+						let line = {
+							cis: rowArray[0].trim(),
+							labelMed: rowArray[1].trim(),
+							pharmaForm: rowArray[2].trim(),
+							medRoute: rowArray[3].trim(),
+							adminStatus: rowArray[4].trim(),
+							procedureType: rowArray[5].trim(),
+							commercialState: rowArray[6].trim(),
+							aamDate: aamDate,
+							bdmStatus: rowArray[8].trim(),
+							numEUAuth: rowArray[9].trim(),
+							holder: rowArray[10].trim(),
+							reinforcedMonitoring: rowArray[11].trim()
+						}
+						array.push(line)
 					}
-					array.push(line)
-				}
-			})
-			Product.BDPM_Cis.bulkCreate(array, { raw: true })
+				})
+				Product.BDPM_Cis.bulkCreate(array, { raw: true })
+			}
+			// CIP file
+			// if ( filename === 'cip' ) {
+			// 	data.split('\n').map(row => {
+			// 		let rowArray = row.split('\t')
+			// 		if ( rowArray[0] !== '' ) {
+			// 			let aamDate = rowArray[7].substring(6,10) + '-' + rowArray[7].substring(3,5) + '-' + rowArray[7].substring(0,2)
+			// 			let line = {
+			// 				cis: rowArray[0].trim(),
+			// 				labelMed: rowArray[1].trim(),
+			// 				pharmaForm: rowArray[2].trim(),
+			// 				medRoute: rowArray[3].trim(),
+			// 				adminStatus: rowArray[4].trim(),
+			// 				procedureType: rowArray[5].trim(),
+			// 				commercialState: rowArray[6].trim(),
+			// 				aamDate: aamDate,
+			// 				bdmStatus: rowArray[8].trim(),
+			// 				numEUAuth: rowArray[9].trim(),
+			// 				holder: rowArray[10].trim(),
+			// 				reinforcedMonitoring: rowArray[11].trim()
+			// 			}
+			// 			array.push(line)
+			// 		}
+			// 	})
+			// 	Product.BDPM_Cis.bulkCreate(array, { raw: true })
+			// }
+			// COMPO file
+			// if ( filename === 'cip' ) {
+			// 	data.split('\n').map(row => {
+			// 		let rowArray = row.split('\t')
+			// 		if ( rowArray[0] !== '' ) {
+			// 			let aamDate = rowArray[7].substring(6,10) + '-' + rowArray[7].substring(3,5) + '-' + rowArray[7].substring(0,2)
+			// 			let line = {
+			// 				cis: rowArray[0].trim(),
+			// 				labelMed: rowArray[1].trim(),
+			// 				pharmaForm: rowArray[2].trim(),
+			// 				medRoute: rowArray[3].trim(),
+			// 				adminStatus: rowArray[4].trim(),
+			// 				procedureType: rowArray[5].trim(),
+			// 				commercialState: rowArray[6].trim(),
+			// 				aamDate: aamDate,
+			// 				bdmStatus: rowArray[8].trim(),
+			// 				numEUAuth: rowArray[9].trim(),
+			// 				holder: rowArray[10].trim(),
+			// 				reinforcedMonitoring: rowArray[11].trim()
+			// 			}
+			// 			array.push(line)
+			// 		}
+			// 	})
+			// 	Product.BDPM_Cis.bulkCreate(array, { raw: true })
+			// }
+			// GENER file
+			// if ( filename === 'cip' ) {
+			// 	data.split('\n').map(row => {
+			// 		let rowArray = row.split('\t')
+			// 		if ( rowArray[0] !== '' ) {
+			// 			let aamDate = rowArray[7].substring(6,10) + '-' + rowArray[7].substring(3,5) + '-' + rowArray[7].substring(0,2)
+			// 			let line = {
+			// 				cis: rowArray[0].trim(),
+			// 				labelMed: rowArray[1].trim(),
+			// 				pharmaForm: rowArray[2].trim(),
+			// 				medRoute: rowArray[3].trim(),
+			// 				adminStatus: rowArray[4].trim(),
+			// 				procedureType: rowArray[5].trim(),
+			// 				commercialState: rowArray[6].trim(),
+			// 				aamDate: aamDate,
+			// 				bdmStatus: rowArray[8].trim(),
+			// 				numEUAuth: rowArray[9].trim(),
+			// 				holder: rowArray[10].trim(),
+			// 				reinforcedMonitoring: rowArray[11].trim()
+			// 			}
+			// 			array.push(line)
+			// 		}
+			// 	})
+			// 	Product.BDPM_Cis.bulkCreate(array, { raw: true })
+			// }
+			// CPD file
+			// if ( filename === 'cip' ) {
+			// 	data.split('\n').map(row => {
+			// 		let rowArray = row.split('\t')
+			// 		if ( rowArray[0] !== '' ) {
+			// 			let aamDate = rowArray[7].substring(6,10) + '-' + rowArray[7].substring(3,5) + '-' + rowArray[7].substring(0,2)
+			// 			let line = {
+			// 				cis: rowArray[0].trim(),
+			// 				labelMed: rowArray[1].trim(),
+			// 				pharmaForm: rowArray[2].trim(),
+			// 				medRoute: rowArray[3].trim(),
+			// 				adminStatus: rowArray[4].trim(),
+			// 				procedureType: rowArray[5].trim(),
+			// 				commercialState: rowArray[6].trim(),
+			// 				aamDate: aamDate,
+			// 				bdmStatus: rowArray[8].trim(),
+			// 				numEUAuth: rowArray[9].trim(),
+			// 				holder: rowArray[10].trim(),
+			// 				reinforcedMonitoring: rowArray[11].trim()
+			// 			}
+			// 			array.push(line)
+			// 		}
+			// 	})
+			// 	Product.BDPM_Cis.bulkCreate(array, { raw: true })
+			// }
 		})
 	})
 }

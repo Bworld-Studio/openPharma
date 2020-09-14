@@ -23,7 +23,7 @@ yarn-error.log*
 *.sln
 *.sw?
 
-# Temporary files
+# Temporary interface files
 cip
 cis
 compo
