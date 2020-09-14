@@ -2,6 +2,7 @@ const Sequelize = require('sequelize')
 const sequelize = new Sequelize('dbg', 'postgres', 'metal', {
 	host: 'localhost',
 	dialect: 'postgres',
+	logging: false,
 	dialectOptions: {
 		// Your mariadb options here
 		connectTimeout: 0

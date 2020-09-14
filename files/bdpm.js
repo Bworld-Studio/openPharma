@@ -60,7 +60,7 @@ async function uploadToDatabaseG (dest, filename) { // eslint-disable-line no-al
 				console.log('File read: ' + err)
 				return reject(err)
 			}
-			if (!err) console.log('Upload file' + filename + 'to database')
+			if (!err) console.log('Upload file: ' + filename + ' to database')
 			let array = []
 			// CIS file
 			if ( filename === 'cis' ) {
