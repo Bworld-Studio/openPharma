@@ -2,7 +2,7 @@ const Sequelize = require('sequelize')
 const dbG = require('../data/dbG.js')
 
 const BDPM_Cis = dbG.sequelize.define('BDPM_Cis', { // eslint-disable-line no-alert, no-unused-vars
-	cis: { type: Sequelize.INTEGER(8), primaryKey: true },
+	cis: { type: Sequelize.INTEGER(8).UNSIGNED, primaryKey: true },
 	labelMed: { type: Sequelize.TEXT },
 	pharmaForm: { type: Sequelize.STRING },
 	medRoute: { type: Sequelize.STRING },
@@ -19,17 +19,17 @@ const BDPM_Cis = dbG.sequelize.define('BDPM_Cis', { // eslint-disable-line no-al
 })
 
 const BDPM_Cip = dbG.sequelize.define('BDPM_Cip', { // eslint-disable-line no-alert, no-unused-vars
+	cip7: { type: Sequelize.INTEGER(7).UNSIGNED, primaryKey: true },
+	cip13: { type: Sequelize.BIGINT(13) },
 	cis: { type: Sequelize.INTEGER(8) },
-	cip7: { type: Sequelize.INTEGER(7), primaryKey: true },
-	cip13: { type: Sequelize.INTEGER(13) },
 	label: { type: Sequelize.TEXT },
 	adminStatus: { type: Sequelize.STRING(30) },
 	commercialState: { type: Sequelize.STRING(40) },
 	commercialDate: { type: Sequelize.DATEONLY },
-	reimbursementRate: { type: Sequelize.DECIMAL(3, 2) },
-	priceTTC: { type: Sequelize.DECIMAL(10, 2) },
-	reimbursementAmount: { type: Sequelize.DECIMAL(10, 2) },
-	priceHD: { type: Sequelize.DECIMAL(10, 2) },
+	reimbursementRate: { type: Sequelize.DECIMAL(3, 2).ZEROFILL },
+	priceTTC: { type: Sequelize.DECIMAL(10, 2).ZEROFILL },
+	reimbursementAmount: { type: Sequelize.DECIMAL(10, 2).ZEROFILL },
+	priceHD: { type: Sequelize.DECIMAL(10, 2).ZEROFILL },
 	reimbursementText: { type: Sequelize.TEXT }
 }, {
 	freezeTableName: true
