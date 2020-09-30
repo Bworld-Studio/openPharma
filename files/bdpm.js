@@ -85,7 +85,7 @@ async function uploadToDatabaseG (dest, filename) { // eslint-disable-line no-al
 					}
 				})
 				Product.BDPM_Cis.bulkCreate(array, { raw: true })
-					.catch(err => {  })
+					.catch(err => { console.log('CIS Update error: '+ err) })
 			}
 			// CIP file
 			if ( filename === 'cip' ) {
@@ -111,7 +111,7 @@ async function uploadToDatabaseG (dest, filename) { // eslint-disable-line no-al
 					}
 				})
 				Product.BDPM_Cip.bulkCreate(array, { raw: true })
-					.catch(err => {  })
+					.catch(err => { console.log('CIP Update error: '+ err) })
 			}
 			// COMPO file
 			if ( filename === 'compo' ) {
@@ -132,7 +132,7 @@ async function uploadToDatabaseG (dest, filename) { // eslint-disable-line no-al
 					}
 				})
 				Product.BDPM_Compo.bulkCreate(array, { raw: true })
-					.catch(err => {  })
+					.catch(err => { console.log('COMPO Update error: '+ err) })
 			}
 			// GENER file
 			if ( filename === 'gener' ) {
@@ -150,7 +150,7 @@ async function uploadToDatabaseG (dest, filename) { // eslint-disable-line no-al
 					}
 				})
 				Product.BDPM_Gener.bulkCreate(array, { raw: true })
-				.catch(err => {  })
+					.catch(err => { console.log('GENER Update error: '+ err) })
 			}
 			// CPD file
 			if ( filename === 'cpd' ) {
@@ -165,7 +165,7 @@ async function uploadToDatabaseG (dest, filename) { // eslint-disable-line no-al
 					}
 				})
 				Product.BDPM_Cpd.bulkCreate(array, { raw: true })
-				.catch(err => {  })
+					.catch(err => { console.log('CPD Update error: '+ err) })
 			}
 		})
 	})
