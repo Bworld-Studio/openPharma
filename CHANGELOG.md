@@ -8,5 +8,5 @@
 
 0.1
   - Creation of the server and application
-  - Connection with database (MariaDB or mongoDB)
+  - Connection with database on PostgreSQL
   - DB API running
