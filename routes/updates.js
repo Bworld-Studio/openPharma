@@ -4,8 +4,8 @@ const router = express.Router()
 const BDPM = require('../files/bdpm')
 
 router.put('/updates', (req, res) => { // eslint-disable-line no-alert, no-unused-vars
-	console.log('updates')
-	BDPM.downloadFiles()
+	console.log('updates: ' + req )
+	BDPM.downloadFiles(req)
 	// console.log(BDPM)
 	// BDPM
 	// .findAll().then(clients => {

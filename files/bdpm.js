@@ -171,10 +171,14 @@ async function uploadToDatabaseG (dest, filename) { // eslint-disable-line no-al
 	})
 }
 
-exports.downloadFiles = function() {
+exports.downloadFiles = function(file) {
+	if (file == 'cis') downloadFile(cis, 'cis')
 	// uploadToDatabaseG(cis, 'cis' )
-	downloadFile(cis, 'cis')
-	downloadFile(cip, 'cip')
+	if (file == 'cip') downloadFile(cip, 'cip')
+	if (file == 'compo') downloadFile(compo, 'compo')
+	if (file == 'gener') downloadFile(gener, 'gener')
+	if (file == 'cpd') downloadFile(cpd, 'cpd')
+
 	// downloadFile(compo, 'compo')
 	// downloadFile(gener, 'gener')
 	// downloadFile(cpd, 'cpd')
