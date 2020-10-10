@@ -1,8 +1,16 @@
-const cis = 'http://base-donnees-publique.medicaments.gouv.fr/telechargement.php?fichier=CIS_bdpm.txt'					// eslint-disable-line no-alert, no-unused-vars
-const cip = 'http://base-donnees-publique.medicaments.gouv.fr/telechargement.php?fichier=CIS_CIP_bdpm.txt'			// eslint-disable-line no-alert, no-unused-vars
-const compo = 'http://base-donnees-publique.medicaments.gouv.fr/telechargement.php?fichier=CIS_COMPO_bdpm.txt'	// eslint-disable-line no-alert, no-unused-vars
-const gener = 'http://base-donnees-publique.medicaments.gouv.fr/telechargement.php?fichier=CIS_GENER_bdpm.txt'	// eslint-disable-line no-alert, no-unused-vars
-const cpd = 'http://base-donnees-publique.medicaments.gouv.fr/telechargement.php?fichier=CIS_CPD_bdpm.txt'			// eslint-disable-line no-alert, no-unused-vars
+// const cis = 'http://base-donnees-publique.medicaments.gouv.fr/telechargement.php?fichier=CIS_bdpm.txt'					// eslint-disable-line no-alert, no-unused-vars
+// const cip = 'http://base-donnees-publique.medicaments.gouv.fr/telechargement.php?fichier=CIS_CIP_bdpm.txt'			// eslint-disable-line no-alert, no-unused-vars
+// const compo = 'http://base-donnees-publique.medicaments.gouv.fr/telechargement.php?fichier=CIS_COMPO_bdpm.txt'	// eslint-disable-line no-alert, no-unused-vars
+// const gener = 'http://base-donnees-publique.medicaments.gouv.fr/telechargement.php?fichier=CIS_GENER_bdpm.txt'	// eslint-disable-line no-alert, no-unused-vars
+// const cpd = 'http://base-donnees-publique.medicaments.gouv.fr/telechargement.php?fichier=CIS_CPD_bdpm.txt'			// eslint-disable-line no-alert, no-unused-vars
+
+const urls = {
+	cis: 'http://base-donnees-publique.medicaments.gouv.fr/telechargement.php?fichier=CIS_bdpm.txt',						// eslint-disable-line no-alert, no-unused-vars
+	cip: 'http://base-donnees-publique.medicaments.gouv.fr/telechargement.php?fichier=CIS_CIP_bdpm.txt',				// eslint-disable-line no-alert, no-unused-vars
+	compo: 'http://base-donnees-publique.medicaments.gouv.fr/telechargement.php?fichier=CIS_COMPO_bdpm.txt',		// eslint-disable-line no-alert, no-unused-vars
+	gener: 'http://base-donnees-publique.medicaments.gouv.fr/telechargement.php?fichier=CIS_GENER_bdpm.txt',		// eslint-disable-line no-alert, no-unused-vars
+	cpd: 'http://base-donnees-publique.medicaments.gouv.fr/telechargement.php?fichier=CIS_CPD_bdpm.txt'					// eslint-disable-line no-alert, no-unused-vars
+}
 
 const http = require('http')
 const fs = require('fs')
@@ -172,12 +180,16 @@ async function uploadToDatabaseG (dest, filename) { // eslint-disable-line no-al
 }
 
 exports.downloadFiles = function(file) {
-	if (file == 'cis') downloadFile(cis, 'cis')
-	// uploadToDatabaseG(cis, 'cis' )
-	if (file == 'cip') downloadFile(cip, 'cip')
-	if (file == 'compo') downloadFile(compo, 'compo')
-	if (file == 'gener') downloadFile(gener, 'gener')
-	if (file == 'cpd') downloadFile(cpd, 'cpd')
+	console.log(file)
+	const url = urls[file]
+	console.log(file, url)
+	downloadFile(url, file)
+	// if (file == 'cis') downloadFile(url, file)
+	// // uploadToDatabaseG(cis, 'cis' )
+	// if (file == 'cip') downloadFile(cip, 'cip')
+	// if (file == 'compo') downloadFile(compo, 'compo')
+	// if (file == 'gener') downloadFile(gener, 'gener')
+	// if (file == 'cpd') downloadFile(cpd, 'cpd')
 
 	// downloadFile(compo, 'compo')
 	// downloadFile(gener, 'gener')
