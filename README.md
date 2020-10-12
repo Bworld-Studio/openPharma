@@ -1,5 +1,5 @@
 # openpharma
-openPharma 0.1
+openPharma 0.1.2
 
 ## Project setup
 ```
