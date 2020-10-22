@@ -109,10 +109,10 @@ async function uploadToDatabaseG (dest, filename) { // eslint-disable-line no-al
 							adminStatus: rowArray[3].trim(),
 							commercialState: rowArray[4].trim(),
 							commercialDate: rowArray[5].substring(6,10) + '-' + rowArray[5].substring(3,5) + '-' + rowArray[5].substring(0,2),
-							reimbursementRate: rowArray[8].replace('%','').trim(),
-							priceTTC: rowArray[9].replace(',','.').trim(),
-							reimbursementAmount: rowArray[10].replace(',','.').trim(),
-							priceHD: rowArray[11].replace(',','.').trim(),
+							reimbursementRate: ( rowArray[8] ) ? rowArray[8].replace('%','').trim() : null,
+							priceTTC: ( rowArray[9] ) ? rowArray[9].replace(',','.').trim() : null,
+							reimbursementAmount: (rowArray[10]) ? rowArray[10].replace(',','.').trim() : null,
+							priceHD: ( rowArray[11] ) ? rowArray[11].replace(',','.').trim() : null,
 							reimbursementText: rowArray[12].trim(),
 						}
 						array.push(line)
