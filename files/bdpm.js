@@ -15,7 +15,7 @@ const urls = {
 const http = require('http')
 const fs = require('fs')
 const path = require('path')
-const Product = require('../models/Product')
+const BDPM = require('../models/BDPM')
 
 async function downloadFile (url, filename) {
 	return new Promise((resolve, reject) => {
@@ -69,12 +69,11 @@ async function uploadToDatabaseG (dest, filename) { // eslint-disable-line no-al
 			}
 			if (!err) console.log('Upload file: ' + filename + ' to database')
 			let array = []
-			// CIS file
+			// BDPM cis file -- OK
 			if ( filename === 'cis' ) {
 				data.split('\n').map(row => {
 					let rowArray = row.split('\t')
 					if ( rowArray[0] !== '' ) {
-						// let aamDate = rowArray[7].substring(6,10) + '-' + rowArray[7].substring(3,5) + '-' + rowArray[7].substring(0,2)
 						let line = {
 							cis: rowArray[0].trim(),
 							labelMed: rowArray[1].trim(),
@@ -92,15 +91,14 @@ async function uploadToDatabaseG (dest, filename) { // eslint-disable-line no-al
 						array.push(line)
 					}
 				})
-				Product.BDPM_Cis.bulkCreate(array, { raw: true })
+				BDPM.cis.bulkCreate(array, { raw: true })
 					.catch(err => { console.log('CIS Update error: '+ err) })
 			}
-			// CIP file
+			// CIP file -- OK
 			if ( filename === 'cip' ) {
 				data.split('\n').map(row => {
 					let rowArray = row.split('\t')
 					if ( rowArray[0] !== '' ) {
-						// let aamDate = rowArray[7].substring(6,10) + '-' + rowArray[7].substring(3,5) + '-' + rowArray[7].substring(0,2)
 						let line = {
 							cip7: rowArray[1].trim(),
 							cip13: rowArray[6].trim(),
@@ -109,19 +107,19 @@ async function uploadToDatabaseG (dest, filename) { // eslint-disable-line no-al
 							adminStatus: rowArray[3].trim(),
 							commercialState: rowArray[4].trim(),
 							commercialDate: rowArray[5].substring(6,10) + '-' + rowArray[5].substring(3,5) + '-' + rowArray[5].substring(0,2),
-							reimbursementRate: ( rowArray[8] ) ? rowArray[8].replace('%','').trim() : null,
-							priceTTC: ( rowArray[9] ) ? rowArray[9].replace(',','.').trim() : null,
-							reimbursementAmount: (rowArray[10]) ? rowArray[10].replace(',','.').trim() : null,
-							priceHD: ( rowArray[11] ) ? rowArray[11].replace(',','.').trim() : null,
+							reimbursementRate: ( rowArray[8] != '' ) ? rowArray[8].replace('%','').trim() : null,
+							priceTTC: ( rowArray[9] != '' ) ? convertAmount(rowArray[9].trim()) : null,
+							reimbursementAmount: ( rowArray[10] != '' ) ? convertAmount(rowArray[10].trim()) : null,
+							priceHD: ( rowArray[11] != '' ) ? convertAmount(rowArray[11].trim()) : null,
 							reimbursementText: rowArray[12].trim(),
 						}
 						array.push(line)
 					}
 				})
-				Product.BDPM_Cip.bulkCreate(array, { raw: true })
+				BDPM.cip.bulkCreate(array, { raw: true })
 					.catch(err => { console.log('CIP Update error: '+ err) })
 			}
-			// COMPO file
+			// BDPM compo file -- ok
 			if ( filename === 'compo' ) {
 				data.split('\n').map(row => {
 					let rowArray = row.split('\t')
@@ -130,8 +128,8 @@ async function uploadToDatabaseG (dest, filename) { // eslint-disable-line no-al
 							cis: rowArray[0].trim(),
 							label: rowArray[1].trim(),
 							substanceID: rowArray[2].trim(),
-							substanceLabel: rowArray[3].trim(),
 							substanceDosage: rowArray[4].trim(),
+							substanceLabel: rowArray[3].trim(),
 							reference: rowArray[5].trim(),
 							nature: rowArray[6].trim(),
 							natureID: rowArray[7].trim(),
@@ -139,10 +137,10 @@ async function uploadToDatabaseG (dest, filename) { // eslint-disable-line no-al
 						array.push(line)
 					}
 				})
-				Product.BDPM_Compo.bulkCreate(array, { raw: true })
+				BDPM.compo.bulkCreate(array, { raw: true })
 					.catch(err => { console.log('COMPO Update error: '+ err) })
 			}
-			// GENER file
+			// BDPM gener file -- ok
 			if ( filename === 'gener' ) {
 				data.split('\n').map(row => {
 					let rowArray = row.split('\t')
@@ -157,10 +155,10 @@ async function uploadToDatabaseG (dest, filename) { // eslint-disable-line no-al
 						array.push(line)
 					}
 				})
-				Product.BDPM_Gener.bulkCreate(array, { raw: true })
+				BDPM.gener.bulkCreate(array, { raw: true })
 					.catch(err => { console.log('GENER Update error: '+ err) })
 			}
-			// CPD file
+			// BDPM cpd file -- ok
 			if ( filename === 'cpd' ) {
 				data.split('\n').map(row => {
 					let rowArray = row.split('\t')
@@ -172,11 +170,20 @@ async function uploadToDatabaseG (dest, filename) { // eslint-disable-line no-al
 						array.push(line)
 					}
 				})
-				Product.BDPM_Cpd.bulkCreate(array, { raw: true })
+				BDPM.cpd.bulkCreate(array, { raw: true })
 					.catch(err => { console.log('CPD Update error: '+ err) })
 			}
 		})
 	})
+}
+
+var convertAmount = function(price) {
+	var decimal = price.substring( price.length - 2, price.length )
+	var units = price.substring(0, price.length - 3 )
+	units = units.replace(',','')
+
+	var priceNew = units+'.'+decimal
+	return priceNew
 }
 
 exports.downloadFiles = function(file) {

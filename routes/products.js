@@ -1,11 +1,11 @@
 const express = require('express')
 const router = express.Router()
 
-const Product = require('../models/Product')
+const BDPM = require('../models/BDPM')
 
 // Get all Clients
 router.get('/products', (req, res) => {
-	Product.findAll().then(clients => {
+	BDPM.findAll().then(clients => {
 		res.json(clients)
 	})
 		.catch(err => {
@@ -19,13 +19,13 @@ router.post('/products', (req, res) => {
 		res.status(400)
 		res.json({ error: 'Bad Data' })
 	} else {
-		Product
+		BDPM
 			.create(req.body).then(() => { res.send('Product Added')})
 			.catch(err => { res.send('error: ' + err) })
 	}
 })
 router.get('/products/:cip', (req, res) => {
-	Product
+	BDPM
 		.findOne({ where: {cip: req.body.cip},})
 		.then(product => { res.json(product) })
 		.catch(err => { res.send('Error: ' + err) })
@@ -54,7 +54,7 @@ router.put('/products/:cip', (req, res) => {
 			error: 'Bad Data'
 		})
 	} else {
-		Product.update(
+		BDPM.update(
 			req.body,
 			{ where: { uuid: req.params.cip } }
 		)

@@ -4,7 +4,6 @@ const sequelize = new Sequelize('dbg', 'postgres', 'metal', {
 	dialect: 'postgres',
 	logging: false,
 	dialectOptions: {
-		// Your mariadb options here
 		connectTimeout: 0
 	},
 	operatorsAliases: false,
