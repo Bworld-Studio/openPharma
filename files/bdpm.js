@@ -91,7 +91,7 @@ async function uploadToDatabaseG (dest, filename) { // eslint-disable-line no-al
 						array.push(line)
 					}
 				})
-				BDPM.cis.bulkCreate(array, { raw: true })
+				BDPM.cis.bulkCreate(array, { raw: true }).then(res => { console.log('CIS Update done: '+ res) } )
 					.catch(err => { console.log('CIS Update error: '+ err) })
 			}
 			// CIP file -- OK
