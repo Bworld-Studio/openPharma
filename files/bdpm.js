@@ -75,17 +75,17 @@ async function uploadToDatabaseG (dest, filename) { // eslint-disable-line no-al
 					let rowArray = row.split('\t')
 					if ( rowArray[0] !== '' ) {
 						let line = {
-							cis: rowArray[0].trim(),
-							labelMed: rowArray[1].trim(),
-							pharmaForm: rowArray[2].trim(),
-							medRoute: rowArray[3].trim(),
-							adminStatus: rowArray[4].trim(),
-							procedureType: rowArray[5].trim(),
-							commercialState: rowArray[6].trim(),
+							cis: convertValue(rowArray, 0),
+							labelMed: convertValue(rowArray, 1),
+							pharmaForm: convertValue(rowArray, 2),
+							medRoute: convertValue(rowArray, 3),// rowArray[3].trim(),
+							adminStatus: convertValue(rowArray, 4), // rowArray[4].trim(),
+							procedureType: convertValue(rowArray, 5), // rowArray[5].trim(),
+							commercialState: convertValue(rowArray, 6), // rowArray[6].trim(),
 							aamDate: rowArray[7].substring(6,10) + '-' + rowArray[7].substring(3,5) + '-' + rowArray[7].substring(0,2),
-							bdmStatus: rowArray[8].trim(),
-							numEUAuth: rowArray[9].trim(),
-							holder: rowArray[10].trim(),
+							bdmStatus: convertValue(rowArray, 8),// rowArray[8].trim(),
+							numEUAuth: convertValue(rowArray, 9), //rowArray[9].trim(),
+							holder: convertValue(rowArray, 10), // rowArray[10].trim(),
 							reinforcedMonitoring: rowArray[11].trim()
 						}
 						array.push(line)
@@ -177,6 +177,16 @@ async function uploadToDatabaseG (dest, filename) { // eslint-disable-line no-al
 	})
 }
 
+var convertValue = function(struc, position) {
+	var value = struc[position].trim()
+	return value
+}
+var convertDate = function(dateText) {
+	var date  dateText.substring(6,10) + '-' + dateText.substring(3,5) + '-' + dateText.substring(0,2),
+	var value = struc[position].trim()
+	return value
+}
+
 var convertAmount = function(price) {
 	var decimal = price.substring( price.length - 2, price.length )
 	var units = price.substring(0, price.length - 3 )
@@ -187,9 +197,9 @@ var convertAmount = function(price) {
 }
 
 exports.downloadFiles = function(file) {
-	console.log(file)
+	// console.log(file)
 	const url = urls[file]
-	console.log(file, url)
+	// console.log(file, url)
 	downloadFile(url, file)
 	// if (file == 'cis') downloadFile(url, file)
 	// // uploadToDatabaseG(cis, 'cis' )
