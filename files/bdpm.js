@@ -82,7 +82,7 @@ async function uploadToDatabaseG (dest, filename) { // eslint-disable-line no-al
 							adminStatus: convertValue(rowArray, 4), // rowArray[4].trim(),
 							procedureType: convertValue(rowArray, 5), // rowArray[5].trim(),
 							commercialState: convertValue(rowArray, 6), // rowArray[6].trim(),
-							aamDate: rowArray[7].substring(6,10) + '-' + rowArray[7].substring(3,5) + '-' + rowArray[7].substring(0,2),
+							aamDate: convertDate(rowArray[7]), // rowArray[7].substring(6,10) + '-' + rowArray[7].substring(3,5) + '-' + rowArray[7].substring(0,2),
 							bdmStatus: convertValue(rowArray, 8),// rowArray[8].trim(),
 							numEUAuth: convertValue(rowArray, 9), //rowArray[9].trim(),
 							holder: convertValue(rowArray, 10), // rowArray[10].trim(),
@@ -106,7 +106,7 @@ async function uploadToDatabaseG (dest, filename) { // eslint-disable-line no-al
 							label: rowArray[2].trim(),
 							adminStatus: rowArray[3].trim(),
 							commercialState: rowArray[4].trim(),
-							commercialDate: rowArray[5].substring(6,10) + '-' + rowArray[5].substring(3,5) + '-' + rowArray[5].substring(0,2),
+							commercialDate: convertDate(rowArray[5]), // rowArray[5].substring(6,10) + '-' + rowArray[5].substring(3,5) + '-' + rowArray[5].substring(0,2),
 							reimbursementRate: ( rowArray[8] != '' ) ? rowArray[8].replace('%','').trim() : null,
 							priceTTC: ( rowArray[9] != '' ) ? convertAmount(rowArray[9].trim()) : null,
 							reimbursementAmount: ( rowArray[10] != '' ) ? convertAmount(rowArray[10].trim()) : null,
@@ -182,9 +182,9 @@ var convertValue = function(struc, position) {
 	return value
 }
 var convertDate = function(dateText) {
-	var date  dateText.substring(6,10) + '-' + dateText.substring(3,5) + '-' + dateText.substring(0,2),
-	var value = struc[position].trim()
-	return value
+	dateText.trim()
+	var date = dateText.substring(6,10) + '-' + dateText.substring(3,5) + '-' + dateText.substring(0,2)
+	return date
 }
 
 var convertAmount = function(price) {
