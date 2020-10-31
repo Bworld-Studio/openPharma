@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize')
 const dbG = require('../data/dbG.js')
 
-const cis = dbG.sequelize.define('cis', { // eslint-disable-line no-alert, no-unused-vars
+const bdpm_cis = dbG.sequelize.define('bdpm_cis', { // eslint-disable-line no-alert, no-unused-vars
 	cis: { type: Sequelize.INTEGER(8), primaryKey: true },
 	labelMed: { type: Sequelize.TEXT },
 	pharmaForm: { type: Sequelize.STRING },
@@ -18,7 +18,7 @@ const cis = dbG.sequelize.define('cis', { // eslint-disable-line no-alert, no-un
 	freezeTableName: true
 })
 
-const cip = dbG.sequelize.define('cip', { // eslint-disable-line no-alert, no-unused-vars
+const bdpm_cip = dbG.sequelize.define('bdpm_cip', { // eslint-disable-line no-alert, no-unused-vars
 	cip7: { type: Sequelize.INTEGER(7), primaryKey: true },
 	cip13: { type: Sequelize.BIGINT(13) },
 	cis: { type: Sequelize.INTEGER(8) },
@@ -35,7 +35,7 @@ const cip = dbG.sequelize.define('cip', { // eslint-disable-line no-alert, no-un
 	freezeTableName: true
 })
 
-const compo = dbG.sequelize.define('compo', { // eslint-disable-line no-alert, no-unused-vars
+const bdpm_compo = dbG.sequelize.define('bdpm_compo', { // eslint-disable-line no-alert, no-unused-vars
 	id: { type: Sequelize.UUID, defaultValue: Sequelize.UUIDV1, primaryKey: true },
 	cis: { type: Sequelize.INTEGER(8) },
 	label: { type: Sequelize.TEXT },
@@ -49,7 +49,7 @@ const compo = dbG.sequelize.define('compo', { // eslint-disable-line no-alert, n
 	freezeTableName: true
 })
 
-const gener = dbG.sequelize.define('gener', { // eslint-disable-line no-alert, no-unused-vars
+const bdpm_gener = dbG.sequelize.define('bdpm_gener', { // eslint-disable-line no-alert, no-unused-vars
 	cis: { type: Sequelize.INTEGER(8), primaryKey: true },
 	id: { type: Sequelize.INTEGER(4), primaryKey: true },
 	label: { type: Sequelize.TEXT },
@@ -59,7 +59,7 @@ const gener = dbG.sequelize.define('gener', { // eslint-disable-line no-alert, n
 	freezeTableName: true
 })
 
-const cpd = dbG.sequelize.define('cpd', { // eslint-disable-line no-alert, no-unused-vars
+const bdpm_cpd = dbG.sequelize.define('bdpm_cpd', { // eslint-disable-line no-alert, no-unused-vars
 	cis: { type: Sequelize.INTEGER(8), primaryKey: true },
 	condition: { type: Sequelize.STRING(1000), primaryKey: true },
 }, {
@@ -67,9 +67,9 @@ const cpd = dbG.sequelize.define('cpd', { // eslint-disable-line no-alert, no-un
 })
 
 module.exports = {
-	cis,
-	cip,
-	compo,
-	gener,
-	cpd
+	bdpm_cis,
+	bdpm_cip,
+	bdpm_compo,
+	bdpm_gener,
+	bdpm_cpd
 }
