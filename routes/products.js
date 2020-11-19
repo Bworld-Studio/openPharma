@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 
 const BDPM = require('../models/BDPM')
+// const BdM_IT = require('../models/BdM_IT')
 
 // Get all Clients
 router.get('/products', (req, res) => {
