@@ -39,14 +39,14 @@ app.use(bodyParser.urlencoded({ extended: false }))	// Parse requests of content
 const clients = require('./routes/clients')
 app.use('/api', clients)
 
-// const Client = require('./routes/client')
-// app.use('/api', Client)
-
 const products = require('./routes/products')
 app.use('/api', products)
 
 const updates = require('./routes/updates')
 app.use('/api', updates)
+
+const orders = require('./routes/orders')
+app.use('/api', orders)
 
 // Set port, listen for requests
 // https.createServer({
