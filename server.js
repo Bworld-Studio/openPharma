@@ -1,5 +1,4 @@
-// const fs = require('fs')
-// const https = require('https')
+
 const express = require('express')
 const bodyParser = require('body-parser')
 
@@ -13,29 +12,7 @@ app.use(cors(corsOptions))
 app.use(bodyParser.json())	// Parse requests of content-type - application/json
 app.use(bodyParser.urlencoded({ extended: false }))	// Parse requests of content-type - application/x-www-form-urlencoded
 
-// MongoDB
-// const MongoClient = require('mongodb').MongoClient
-// const assert = require('assert')
-
-// Connection URL
-// const url = 'mongodb://localhost:27017'
-
-// Database Name
-// const dbName = 'dbo'
-
-// Create a new MongoClient
-// const client = new MongoClient(url)
-
-// Use connect method to connect to the Server
-// client.connect(function(err) {
-// 	assert.equal(null, err)
-// 	console.log('Connected successfully to server')
-
-// 	const dbO = client.db(dbName)
-
-// 	client.close()
-// })
-
+// Declare API Routes
 const clients = require('./routes/clients')
 app.use('/api', clients)
 
@@ -48,13 +25,17 @@ app.use('/api', updates)
 const orders = require('./routes/orders')
 app.use('/api', orders)
 
-// Set port, listen for requests
-// https.createServer({
-// 	key: fs.readFileSync('key.prem'),
-// 	cert: fs.readFileSync('cert.pem')
-// }, app).listen(443)
+// const template = require('./routes/template')
+// app.use('/api', template)
 
 const port = 3000
 app.listen(port, function() {
 	console.log('Server started on port ' + port)
 })
+
+
+// Set port, listen for requests in HTTPS, see: Passer openpharma en https #44 (https://github.com/Bworld-Studio/openpharma/issues/44)
+// https.createServer({
+// 	key: fs.readFileSync('key.prem'),
+// 	cert: fs.readFileSync('cert.pem')
+// }, app).listen(443)
