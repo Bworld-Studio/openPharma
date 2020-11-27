@@ -1,5 +1,0 @@
-PUT http://localhost:3000/api/updates
-
-# GET http://localhost:3000/api/clients
-
-# GET http://base-donnees-publique.medicaments.gouv.fr/telechargement.php?fichier=CIS_CPD_bdpm.txt

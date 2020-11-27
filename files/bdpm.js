@@ -202,9 +202,7 @@ const convertAmount = function(p_amount) {
 	return price
 }
 
-exports.downloadFiles = function(file) {
-
+exports.updateFile = function(file) {
 	const url = urls[file]
 	downloadFile(url, file)
-
 }

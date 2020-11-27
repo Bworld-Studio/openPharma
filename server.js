@@ -12,27 +12,12 @@ app.use(cors(corsOptions))
 app.use(bodyParser.json())	// Parse requests of content-type - application/json
 app.use(bodyParser.urlencoded({ extended: false }))	// Parse requests of content-type - application/x-www-form-urlencoded
 
-// Declare API Routes
-const clients = require('./routes/clients')
-app.use('/api', clients)
-
-const products = require('./routes/products')
-app.use('/api', products)
-
-const updates = require('./routes/updates')
-app.use('/api', updates)
-
-const orders = require('./routes/orders')
-app.use('/api', orders)
-
-// const template = require('./routes/template')
-// app.use('/api', template)
+require('./routes')(app) // Declare API Routes
 
 const port = 3000
 app.listen(port, function() {
 	console.log('Server started on port ' + port)
 })
-
 
 // Set port, listen for requests in HTTPS, see: Passer openpharma en https #44 (https://github.com/Bworld-Studio/openpharma/issues/44)
 // https.createServer({
