@@ -8,7 +8,7 @@
   },
   "scripts": {
     "debug": "nodemon --inspect server.js",
-    "dev": "nodemon server.js",
+    "dev": "nodemon --trace-deprecation server.js",
     "install": "npm install"
   },
   "main": "server.js",
