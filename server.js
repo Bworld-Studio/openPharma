@@ -15,7 +15,7 @@ require('./routes')(app) // Declare API Routes
 
 const port = 3000
 app.listen(port, function() {
-	console.log('Server started on port ' + port)
+	console.log('openpharma server 0.1.3 running on port ' + port)
 })
 
 // Set port, listen for requests in HTTPS, see: Passer openpharma en https #44 (https://github.com/Bworld-Studio/openpharma/issues/44)
