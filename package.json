@@ -14,10 +14,6 @@
   "main": "server.js",
   "dependencies": {
     "@mdi/font": "^3.6.95",
-<<<<<<< HEAD
-=======
-    "axios": "^0.21.1",
->>>>>>> 31a64d5044e23fb5dad39b8c4e186ed06c1dcd87
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
