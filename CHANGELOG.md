@@ -11,7 +11,7 @@
 ## 0.1.1
   - ➕ Vue Application creation
   - ➕ Translation French English
-  - ➕ Client vue creation
+  - ➕ Client view creation
 
 ## 0.1
   - ➕ Creation of the server and application
@@ -21,7 +21,7 @@
 
 ## Commit Legend
 ```
-➕ :heavy_plus_sign:	When adding a file or implementing a feature
+➕ :heavy_plus_sign:	Adding a file or implementing a feature
 🔨 :hammer:				Fixing a bug or issue
 💚 :green_heart:		Improving code or comments
 ⚡ :zap:				Improving performance
