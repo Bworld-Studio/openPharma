@@ -18,6 +18,7 @@ app.listen(port, function() {
 	console.log('openpharma server 0.1.3 running on port ' + port)
 })
 
+// #44 Passer openpharma en https
 // Set port, listen for requests in HTTPS, see: Passer openpharma en https #44 (https://github.com/Bworld-Studio/openpharma/issues/44)
 // https.createServer({
 // 	key: fs.readFileSync('key.prem'),
