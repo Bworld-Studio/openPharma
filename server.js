@@ -15,7 +15,7 @@ require('./routes')(app) // Declare API Routes
 
 const port = 3000
 app.listen(port, function() {
-	console.log('openpharma server 0.1.3 running on port ' + port)
+	console.log('openpharma Server@0.1.3 running on port ' + port)
 })
 
 // #44 Passer openpharma en https
