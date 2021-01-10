@@ -6,7 +6,7 @@ const sequelize = new Sequelize('dbg', 'postgres', 'metal', {
 	dialectOptions: {
 		connectTimeout: 0
 	},
-	operatorsAliases: false,
+	operatorsAliases: 0,
 	pool: {
 		max: 5,
 		min: 0,

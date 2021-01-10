@@ -12,7 +12,7 @@ const ordersH = dbG.sequelize.define('ordersH', { // eslint-disable-line no-aler
 
 const ordersP = dbG.sequelize.define('ordersP', {
 	id: { type: Sequelize.INTEGER, primaryKey: true },
-	cis: { type: Sequelize.INTEGER(8), primaryKey: true },
+	cis: { type: Sequelize.INTEGER, primaryKey: true },
 	quantity: { type: Sequelize.INTEGER },
 	priceCat: { type: Sequelize.DECIMAL(10, 2) },
 	discount: { type: Sequelize.DECIMAL(10, 2) },

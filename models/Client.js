@@ -6,7 +6,7 @@ module.exports = dbG.sequelize.define(
 	{
 		uuid: { type: Sequelize.UUID, defaultValue: Sequelize.UUIDV4, primaryKey: true },
 		numSS: { type: Sequelize.STRING(13) },
-		cleSS: { type: Sequelize.INTEGER(2) },
+		cleSS: { type: Sequelize.SMALLINT },
 		lastName: { type: Sequelize.STRING },
 		firstName: { type: Sequelize.STRING },
 		birthDate: { type: Sequelize.DATEONLY },

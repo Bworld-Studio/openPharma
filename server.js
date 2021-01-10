@@ -1,5 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const pjson = require('./package.json')
 
 const cors = require('cors')
 const corsOptions = { origin: 'http://localhost:3000' }
@@ -15,7 +16,7 @@ require('./routes')(app) // Declare API Routes
 
 const port = 3000
 app.listen(port, function() {
-	console.log('openpharma Server@0.1.3 running on port ' + port)
+	console.log( pjson.name + '@' + pjson.version + ' running on port ' + port)
 })
 
 // #44 Passer openpharma en https

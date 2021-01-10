@@ -2,7 +2,7 @@ const Sequelize = require('sequelize')
 const dbG = require('../data/dbG.js')
 
 const bdpm_cis = dbG.sequelize.define('bdpm_cis', { // eslint-disable-line no-alert, no-unused-vars
-	cis: { type: Sequelize.INTEGER(8), primaryKey: true },
+	cis: { type: Sequelize.INTEGER, primaryKey: true },
 	labelMed: { type: Sequelize.TEXT },
 	pharmaForm: { type: Sequelize.STRING },
 	medRoute: { type: Sequelize.STRING },
@@ -19,14 +19,14 @@ const bdpm_cis = dbG.sequelize.define('bdpm_cis', { // eslint-disable-line no-al
 })
 
 const bdpm_cip = dbG.sequelize.define('bdpm_cip', { // eslint-disable-line no-alert, no-unused-vars
-	cip7: { type: Sequelize.INTEGER(7), primaryKey: true },
-	cip13: { type: Sequelize.BIGINT(13) },
-	cis: { type: Sequelize.INTEGER(8) },
+	cip7: { type: Sequelize.INTEGER, primaryKey: true },
+	cip13: { type: Sequelize.BIGINT },
+	cis: { type: Sequelize.INTEGER },
 	label: { type: Sequelize.TEXT },
 	adminStatus: { type: Sequelize.STRING(30) },
 	commercialState: { type: Sequelize.STRING(100) },
 	commercialDate: { type: Sequelize.DATEONLY },
-	reimbursementRate: { type: Sequelize.INTEGER(4) },
+	reimbursementRate: { type: Sequelize.SMALLINT },
 	priceTTC: { type: Sequelize.DECIMAL(10, 2) },
 	reimbursementAmount: { type: Sequelize.DECIMAL(10, 2) },
 	priceHD: { type: Sequelize.DECIMAL(10, 2) },
@@ -37,30 +37,30 @@ const bdpm_cip = dbG.sequelize.define('bdpm_cip', { // eslint-disable-line no-al
 
 const bdpm_compo = dbG.sequelize.define('bdpm_compo', { // eslint-disable-line no-alert, no-unused-vars
 	id: { type: Sequelize.UUID, defaultValue: Sequelize.UUIDV1, primaryKey: true },
-	cis: { type: Sequelize.INTEGER(8) },
+	cis: { type: Sequelize.INTEGER },
 	label: { type: Sequelize.TEXT },
-	substanceID: { type: Sequelize.INTEGER(8) },
+	substanceID: { type: Sequelize.INTEGER },
 	substanceLabel: { type: Sequelize.TEXT },
 	substanceDosage: { type: Sequelize.TEXT },
 	reference: { type: Sequelize.STRING },
 	nature: { type: Sequelize.STRING(2) },
-	natureID: { type: Sequelize.INTEGER(3) },
+	natureID: { type: Sequelize.SMALLINT },
 }, {
 	freezeTableName: true
 })
 
 const bdpm_gener = dbG.sequelize.define('bdpm_gener', { // eslint-disable-line no-alert, no-unused-vars
-	cis: { type: Sequelize.INTEGER(8), primaryKey: true },
-	id: { type: Sequelize.INTEGER(4), primaryKey: true },
+	cis: { type: Sequelize.INTEGER, primaryKey: true },
+	id: { type: Sequelize.SMALLINT, primaryKey: true },
 	label: { type: Sequelize.TEXT },
-	type: { type: Sequelize.INTEGER(2) },
-	sort: { type: Sequelize.INTEGER(2) },
+	type: { type: Sequelize.SMALLINT },
+	sort: { type: Sequelize.SMALLINT },
 }, {
 	freezeTableName: true
 })
 
 const bdpm_cpd = dbG.sequelize.define('bdpm_cpd', { // eslint-disable-line no-alert, no-unused-vars
-	cis: { type: Sequelize.INTEGER(8), primaryKey: true },
+	cis: { type: Sequelize.INTEGER, primaryKey: true },
 	condition: { type: Sequelize.STRING(1000), primaryKey: true },
 }, {
 	freezeTableName: true

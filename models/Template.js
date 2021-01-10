@@ -25,7 +25,7 @@ const templateH = dbG.sequelize.define('templateH', {
 // Table 2 si le modèle se compose de plusieurs tables (ex: en-tête et postes comme les factures )
 const templateP = dbG.sequelize.define('templateP', {
 	id: { type: Sequelize.INTEGER, primaryKey: true },
-	cis: { type: Sequelize.INTEGER(8), primaryKey: true },
+	cis: { type: Sequelize.INTEGER, primaryKey: true },
 	quantity: { type: Sequelize.INTEGER },
 	priceCat: { type: Sequelize.DECIMAL(10, 2) },
 	discount: { type: Sequelize.DECIMAL(10, 2) },
