@@ -46,6 +46,7 @@ async function downloadFile (url, filename) {
 			if (err.code === 'EEXIST') {
 				reject('File already exists')
 			} else {
+				//TODO: Gérer les codes retour pour les integrations BDPM
 				// fs.unlink(dest, () => {}) // Delete temp file
 				// reject(err.message)
 			}
