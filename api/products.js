@@ -6,8 +6,8 @@ const BDPM = require('../models/BDPM')
 
 // Get all Products
 router.get('/products', (req, res) => {
-	BDPM.findAll().then(products => {
-		res.json(products)
+	BDPM.bdpm_cis.findAll().then(clients => { // Appel de la bonne table
+		res.json(clients)
 	})
 		.catch(err => {
 			res.send('Error: ' + err)

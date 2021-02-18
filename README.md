@@ -19,14 +19,14 @@ npm run build
 
 ## Commit Legend
 ```
-➕ :heavy_plus_sign:	Adding a file or implementing a feature
+🚧 :construction:		Adding a file or implementing a feature
 🔨 :hammer:				Fixing a bug or issue
 💚 :green_heart:		Improving code or comments
-⚡ :zap:				Improving performance
+⚡ :zap:					Improving performance
 📜 :scroll:				Updating docs or readme
 🔑 :key:				Dealing with security
 🔁 :repeat:				Updating dependencies or data
-✅ :white_check_mark:	New release is built
+✅ :white_check_mark:		New release is built
 👕 :shirt:				Refactoring or removing linter warnings
 ❌ :x:					Removing code or files
 ```
