@@ -4,7 +4,7 @@ const router = express.Router()
 const BDPM = require('../models/BDPM')
 // const BdM_IT = require('../models/BdM_IT')
 
-// Get all Clients
+// Get all Products
 router.get('/products', (req, res) => {
 	BDPM.bdpm_cis.findAll().then(clients => { // Appel de la bonne table
 		res.json(clients)
@@ -13,7 +13,13 @@ router.get('/products', (req, res) => {
 			res.send('Error: ' + err)
 		})
 })
-
+// Get from product
+router.get('/products/:cip', (req, res) => {
+	BDPM
+		.findOne({ where: {cip: req.body.cip},})
+		.then(product => { res.json(product) })
+		.catch(err => { res.send('Error: ' + err) })
+})
 // Add Client
 router.post('/products', (req, res) => {
 	if (!req.body.numSS) {
@@ -25,12 +31,7 @@ router.post('/products', (req, res) => {
 			.catch(err => { res.send('error: ' + err) })
 	}
 })
-router.get('/products/:cip', (req, res) => {
-	BDPM
-		.findOne({ where: {cip: req.body.cip},})
-		.then(product => { res.json(product) })
-		.catch(err => { res.send('Error: ' + err) })
-})
+
 
 // Delete Client
 // router.delete("/clients/:uuid", (req, res) => {
