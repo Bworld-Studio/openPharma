@@ -1,3 +1,9 @@
+## 0.1.4
+  - ✅ Bump to 0.1.4
+  - 🚧 Update BDPM timestamp for last update status
+  - 🔁 Updates dependencies to last packages
+  - 📜 Template component Improvments
+
 ## 0.1.3
   - 🚧 Integration of the BDPM files in DB
   - 💚 Routes API auto declaration
