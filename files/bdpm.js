@@ -54,9 +54,9 @@ async function downloadFile (url, filename) {
 	})
 }
 
-async function uploadToDatabaseG (dest, filename) { // eslint-disable-line no-alert, no-unused-vars
+async function uploadToDatabaseG (filename, dest) { // eslint-disable-line no-alert, no-unused-vars
 	new Promise((resolve, reject) => {
-
+		let timestamp = new Date()
 		fs.readFile(path.join(__dirname, 'bdpm', filename), 'latin1', (err, data) => {	// eslint-disable-line no-alert, no-undef
 			if (err) {
 				console.log(filename+': file reed')
@@ -87,8 +87,14 @@ async function uploadToDatabaseG (dest, filename) { // eslint-disable-line no-al
 					}
 				})
 				BDPM.bdpm_cis.destroy({ truncate: true })
-				BDPM.bdpm_cis.bulkCreate(array).then(function() { console.log('CIS: update done') } )
+				BDPM.bdpm_cis.bulkCreate(array)
+					.then(function() {
+						console.log('CIS: update done')
+						BDPM.bdmp_updates.create({file: 'cis', timestamp: timestamp})
+						BDPM.bdmp_updates.create({file: 'global', timestamp: timestamp})
+					})
 					.catch(err => { console.log('CIS: update error -->'+ err) })
+
 			}
 			// CIP file -- OK
 			if ( filename === 'cip' ) {
@@ -113,7 +119,11 @@ async function uploadToDatabaseG (dest, filename) { // eslint-disable-line no-al
 					}
 				})
 				BDPM.bdpm_cip.destroy({ truncate: true })
-				BDPM.bdpm_cip.bulkCreate(array, { raw: true }).then(function() { console.log('CIP: update done') } )
+				BDPM.bdpm_cip.bulkCreate(array, { raw: true })
+					.then(function() {
+						console.log('CIP: update done')
+						BDPM.bdmp_updates.create({file: 'cip', timestamp: timestamp})
+					})
 					.catch(err => { console.log('CIP: update error --> '+ err) })
 			}
 			// BDPM compo file -- ok
@@ -135,7 +145,11 @@ async function uploadToDatabaseG (dest, filename) { // eslint-disable-line no-al
 					}
 				})
 				BDPM.bdpm_compo.destroy({ truncate: true })
-				BDPM.bdpm_compo.bulkCreate(array, { raw: true }).then(function() { console.log('COMPO: update done') } )
+				BDPM.bdpm_compo.bulkCreate(array, { raw: true })
+					.then(function() {
+						console.log('COMPO: update done')
+						BDPM.bdmp_updates.create({file: 'compo', timestamp: timestamp})
+					})
 					.catch(err => { console.log('COMPO: update error --> '+ err) })
 			}
 			// BDPM gener file -- ok
@@ -154,7 +168,11 @@ async function uploadToDatabaseG (dest, filename) { // eslint-disable-line no-al
 					}
 				})
 				BDPM.bdpm_gener.destroy({ truncate: true })
-				BDPM.bdpm_gener.bulkCreate(array, { raw: true }).then(function() { console.log('GENER: update done') } )
+				BDPM.bdpm_gener.bulkCreate(array, { raw: true })
+					.then(function() {
+						console.log('GENER: update done')
+						BDPM.bdmp_updates.create({file: 'gener', timestamp: timestamp})
+					})
 					.catch(err => { console.log('GENER: update error --> '+ err) })
 			}
 			// BDPM cpd file -- ok
@@ -170,8 +188,12 @@ async function uploadToDatabaseG (dest, filename) { // eslint-disable-line no-al
 					}
 				})
 				BDPM.bdpm_cpd.destroy({ truncate: true })
-				BDPM.bdpm_cpd.bulkCreate(array, { raw: true }).then(function() { console.log('CPD: update done') } )
-					.catch(err => { console.log('CPD: update error --> '+ err) }) 
+				BDPM.bdpm_cpd.bulkCreate(array, { raw: true })
+					.then(function() {
+						console.log('CPD: update done')
+						BDPM.bdmp_updates.create({file: 'cpd', timestamp: timestamp})
+					})
+					.catch(err => { console.log('CPD: update error --> '+ err) })
 			}
 		})
 	})
@@ -203,7 +225,11 @@ const convertAmount = function(p_amount) {
 	return price
 }
 
-exports.updateFile = function(file) {
-	const url = urls[file]
-	downloadFile(url, file)
+exports.updateFiles = function(file) {
+	// const url = urls[file]
+	downloadFile('cis', urls['cis'])
+	downloadFile('cip', urls['cip'])
+	downloadFile('compo', urls['compo'])
+	downloadFile('gener', urls['gener'])
+	downloadFile('cpd', urls['cpd'])
 }
