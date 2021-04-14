@@ -1,8 +1,8 @@
 const express = require('express')
 const router = express.Router()
 
-const bdpm = require('../files/bdpm')
-const BDPM = require('../models/BDPM')
+const bdpm = require('../../../apis/bdpm/bdpm')
+const BDPM = require('../../../models/BDPM')
 
 router.put('/updates', (req, res) => { // eslint-disable-line no-alert, no-unused-vars
 	console.log('Update file: '+ req.body.file )

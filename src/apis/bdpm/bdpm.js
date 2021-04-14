@@ -9,7 +9,7 @@ const urls = {
 const http = require('http')
 const fs = require('fs')
 const path = require('path')
-const BDPM = require('../models/BDPM')
+const BDPM = require('../../models/BDPM')
 
 async function downloadFile (url, filename) {
 	return new Promise((resolve, reject) => {
@@ -225,7 +225,7 @@ const convertAmount = function(p_amount) {
 	return price
 }
 
-exports.updateFiles = function(file) {
+exports.updateFiles = function() {
 	// const url = urls[file]
 	downloadFile('cis', urls['cis'])
 	downloadFile('cip', urls['cip'])

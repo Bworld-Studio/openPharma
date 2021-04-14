@@ -1,7 +1,7 @@
-# openpharma Server 0.1.3
+# openpharma Server 0.2.1
 
 ## Description
-This package is the Web UI for the openpharma application, it works on all browsers
+This package is the backend application for openpharma
 
 
 ## Build Setup

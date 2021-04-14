@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize')	// Importation de Sequelize
-const dbG = require('../data/dbG.js')		// Importaion des paramètres de la BD
+const dbG = require('../plugins/postgre-connector')		// Importaion des paramètres de la BD
 
 // Table unique
 const template = dbG.sequelize.define('ordersH', {

@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize')
-const dbG = require('../data/dbG.js')
+const dbG = require('../plugins/postgre-connector')
 
 module.exports = dbG.sequelize.define(
 	'client',

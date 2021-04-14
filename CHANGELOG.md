@@ -1,3 +1,9 @@
+## 0.2.1
+  - ✅ Bump to 0.2.1
+  - 🚧 External APIs framework
+  - 🚧 Reorganization of the file system
+  - 🚧 Start splitting of db queries from api
+
 ## 0.1.4
   - ✅ Bump to 0.1.4
   - 🚧 Update BDPM timestamp for last update status
