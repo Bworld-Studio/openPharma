@@ -23,7 +23,7 @@
 		"fs": "0.0.1-security",
 		"node-stream-zip": "^1.13.1",
 		"path": "^0.12.7",
-		"pg": "^8.5.1",
+		"pg": "^8.6.0",
 		"sequelize": "^6.6.2"
 	},
 	"devDependencies": {
