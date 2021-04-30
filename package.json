@@ -21,7 +21,7 @@
 		"fastify": "^3.14.2",
 		"fastify-autoload": "^3.7.0",
 		"fs": "0.0.1-security",
-		"node-stream-zip": "^1.13.1",
+		"node-stream-zip": "^1.13.3",
 		"path": "^0.12.7",
 		"pg": "^8.5.1",
 		"sequelize": "^6.6.2"
