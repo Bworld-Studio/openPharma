@@ -1,25 +1,25 @@
 const express = require('express')
 const router = express.Router()
 
-const Order = require('../../../models/Order')
+// const Order = require('../../../models/Order')
 
 // Get orders
-router.get('/orders', (req, res) => {
-	Order.findAll()
-		.then(orders => { res.json(orders) })
-		.catch(err => { res.send('Error: ' + err) })
+router.get('/orders', (req, res) => { // eslint-disable-line no-alert, no-unused-vars
+	// Order.findAll()
+	// 	.then(orders => { res.json(orders) })
+	// 	.catch(err => { res.send('Error: ' + err) })
 })
 
 // Add Client
 router.post('/orders', (req, res) => { // eslint-disable-line no-alert, no-unused-vars
-	if (!req.body.numSS) {
-		res.status(400)
-		res.json({ error: 'Bad Data' })
-	} else {
-		Order.create(req.body)
-			.then(() => { res.send('Order added') })
-			.catch(err => { res.send('error: ' + err) })
-	}
+	// if (!req.body.numSS) {
+	// 	res.status(400)
+	// 	res.json({ error: 'Bad Data' })
+	// } else {
+	// 	Order.create(req.body)
+	// 		.then(() => { res.send('Order added') })
+	// 		.catch(err => { res.send('error: ' + err) })
+	// }
 })
 
 // Get Client

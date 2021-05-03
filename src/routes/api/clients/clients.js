@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const Client = require('../../../models/Client')
+const clientService = require('../../../services/clients')
 
 // Get all Clients
 router.get('/clients', (req, res) => {

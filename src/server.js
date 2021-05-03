@@ -2,17 +2,17 @@ const express = require('express')
 // const bodyParser = require('body-parser')
 const pjson = require('../package.json')
 
-const cors = require('cors')
-const corsOptions = { origin: 'http://localhost:3000' }
+// const cors = require('cors')
+// const corsOptions = { origin: 'http://localhost:3000' }
 
 const app = express()	// Application creation
 
-app.use(cors(corsOptions))
-
-// app.use(bodyParser.json())	// Parse requests of content-type - application/json
-// app.use(bodyParser.urlencoded({ extended: false }))	// Parse requests of content-type - application/x-www-form-urlencoded
+// app.use(cors(corsOptions))
 
 require('../src/routes/routes')(app) // Declare API Routes
+
+// const routes = require('../src/routes/routes')
+// app.use(routes)
 
 const port = 3000
 app.listen(port, function() {
@@ -21,10 +21,24 @@ app.listen(port, function() {
 
 // #44 Passer openpharma en https
 // Set port, listen for requests in HTTPS, see: Passer openpharma en https #44 (https://github.com/Bworld-Studio/openpharma/issues/44)
-// https.createServer({
-// 	key: fs.readFileSync('key.prem'),
-// 	cert: fs.readFileSync('cert.pem')
-// }, app).listen(443)
+
+// const https = require('https')
+// const fs = require('fs')
+
+// const port = 3443
+
+// const options = {
+// 	key: fs.readFileSync('./key.pem'),
+// 	cert: fs.readFileSync('./cert.pem'),
+// 	passphrase: 'metal01'
+// }
+
+// https.createServer(options, app).listen(port, function() {
+// 	console.log( pjson.name + '@' + pjson.version + ' running on port ' + port)
+// })
+
+//--------------------------------------------------------------//
+// Fastify Server																								//
 
 // const fs = require('fs')
 // const common = require('./common/common')

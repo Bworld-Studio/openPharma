@@ -1,6 +1,6 @@
 {
 	"name": "openpharma-server",
-	"version": "0.2.1",
+	"version": "0.2.2",
 	"private": true,
 	"description": "openpharma server",
 	"author": {
@@ -14,20 +14,16 @@
 	"main": "server.js",
 	"dependencies": {
 		"axios": "^0.21.1",
-		"body-parser": "^1.19.0",
-		"cheerio": "^1.0.0-rc.5",
-		"cors": "^2.8.5",
+		"cheerio": "^1.0.0-rc.6",
 		"express": "^4.17.1",
-		"fastify": "^3.14.2",
-		"fastify-autoload": "^3.7.0",
 		"fs": "0.0.1-security",
-		"node-stream-zip": "^1.13.1",
+		"node-stream-zip": "^1.13.3",
 		"path": "^0.12.7",
-		"pg": "^8.5.1",
+		"pg": "^8.6.0",
 		"sequelize": "^6.6.2"
 	},
 	"devDependencies": {
-		"eslint": "^7.4.0",
+		"eslint": "^7.25.0",
 		"nodemon": "^2.0.7"
 	},
 	"eslintConfig": {

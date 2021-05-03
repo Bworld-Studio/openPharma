@@ -66,18 +66,10 @@ const bdpm_cpd = dbG.sequelize.define('bdpm_cpd', { // eslint-disable-line no-al
 	freezeTableName: true
 })
 
-const bdpm_updates = dbG.sequelize.define('bdpm_updates', { // eslint-disable-line no-alert, no-unused-vars
-	file: { type: Sequelize.TEXT, primaryKey: true },
-	timestamp: { type: Sequelize.DATEONLY, primaryKey: true },
-}, {
-	freezeTableName: true
-})
-
 module.exports = {
 	bdpm_cis,
 	bdpm_cip,
 	bdpm_compo,
 	bdpm_gener,
-	bdpm_cpd,
-	bdpm_updates
+	bdpm_cpd
 }
