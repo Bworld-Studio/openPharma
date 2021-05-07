@@ -14,7 +14,7 @@
 	"main": "server.js",
 	"dependencies": {
 		"axios": "^0.21.1",
-		"cheerio": "^1.0.0-rc.6",
+		"cheerio": "^1.0.0-rc.9",
 		"express": "^4.17.1",
 		"fs": "0.0.1-security",
 		"node-stream-zip": "^1.13.4",
