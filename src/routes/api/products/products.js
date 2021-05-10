@@ -1,22 +1,47 @@
 const express = require('express')
 const router = express.Router()
 
+const { Op } = require('sequelize')
+
 const BDPM = require('../../../models/BDPM')
 // const BdM_IT = require('../models/BdM_IT')
 
 // Get all Products
 router.get('/products', (req, res) => {
-	BDPM.bdpm_cis.findAll().then(clients => { // Appel de la bonne table
-		res.json(clients)
-	})
-		.catch(err => {
-			res.send('Error: ' + err)
-		})
+	console.log(req.query)
+	if ( req.query.search != undefined ) {	// Search API
+		let query = {}
+		if ( isNaN(req.query.search) ) {
+			query = {
+				labelMed: { [Op.like]: req.query.search + '%' }
+			}
+		} else {
+			query = {
+				cis: req.query.search
+			}
+		}
+		// let query = {
+		// 	[Op.or]: [{ labelMed: { [Op.like]: req.query.search + '%' } },
+		// 		{ cis: req.query.search}
+		// 	]
+		// }
+		BDPM.bdpm_cis.findAll( { where: query })
+			.then(products => {
+				res.json(products) })
+			.catch(err => { res.send('Error: ' + err) })
+	}
+	else {
+		BDPM.bdpm_cis.findAll()
+			.then(products => { res.json(products) })
+			.catch(err => { res.send('Error: ' + err) })
+	}
+
 })
 // Get from product
-router.get('/products/:cip', (req, res) => {
-	BDPM
-		.findOne({ where: {cip: req.body.cip},})
+router.get('/products/:cis', (req, res) => {
+	BDPM.bdpm_cis
+		.findByPk(req.params.cis)
+		// .findOne({ where: {cis: req.body.cis},})
 		.then(product => { res.json(product) })
 		.catch(err => { res.send('Error: ' + err) })
 })
@@ -33,7 +58,7 @@ router.post('/products', (req, res) => {
 })
 
 
-// Delete Client
+// Delete Product
 // router.delete("/clients/:uuid", (req, res) => {
 // 	Client.destroy({
 // 		where: {
