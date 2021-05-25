@@ -1,19 +1,30 @@
 const express = require('express')
-// const bodyParser = require('body-parser')
 const pjson = require('../package.json')
-
-// const cors = require('cors')
-// const corsOptions = { origin: 'http://localhost:3000' }
 
 const app = express()	// Application creation
 
+// CORS
+// const cors = require('cors')
+// const corsOptions = { origin: 'http://localhost:3000' }
 // app.use(cors(corsOptions))
 
+// Body Parser
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
+
+// Absolute paths
+global.base_dir = __dirname // eslint-disable-line no-undef
+global.abs_path = function(path) {
+	return base_dir + path // eslint-disable-line no-undef
+}
+global.include = function(file) {
+	return require(abs_path('/' + file)) // eslint-disable-line no-undef
+}
+
+// Declare routes
 require('../src/routes/routes')(app) // Declare API Routes
 
-// const routes = require('../src/routes/routes')
-// app.use(routes)
-
+// Start Server
 const port = 3000
 app.listen(port, function() {
 	console.log( pjson.name + '@' + pjson.version + ' running on port ' + port)
@@ -37,7 +48,7 @@ app.listen(port, function() {
 // 	console.log( pjson.name + '@' + pjson.version + ' running on port ' + port)
 // })
 
-//--------------------------------------------------------------//
+
 // Fastify Server																								//
 
 // const fs = require('fs')

@@ -8,23 +8,18 @@ const BDPM = require('../../../models/BDPM')
 
 // Get all Products
 router.get('/products', (req, res) => {
-	console.log(req.query)
-	if ( req.query.search != undefined ) {	// Search API
+	let search = req.query.search
+	if ( search != undefined ) {	// Search API
 		let query = {}
-		if ( isNaN(req.query.search) ) {
+		if ( isNaN(search) ) { 			// Query with ID
 			query = {
-				labelMed: { [Op.like]: req.query.search + '%' }
+				labelMed: { [Op.like]: search + '%' }
 			}
 		} else {
 			query = {
-				cis: req.query.search
+				cis: search
 			}
 		}
-		// let query = {
-		// 	[Op.or]: [{ labelMed: { [Op.like]: req.query.search + '%' } },
-		// 		{ cis: req.query.search}
-		// 	]
-		// }
 		BDPM.bdpm_cis.findAll( { where: query })
 			.then(products => {
 				res.json(products) })

@@ -66,10 +66,12 @@ const bdpm_cpd = dbG.sequelize.define('bdpm_cpd', { // eslint-disable-line no-al
 	freezeTableName: true
 })
 
+// const 
+
 module.exports = {
 	bdpm_cis,
 	bdpm_cip,
 	bdpm_compo,
 	bdpm_gener,
-	bdpm_cpd
+	bdpm_cpd,
 }
