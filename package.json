@@ -17,13 +17,13 @@
 		"express": "^4.17.1",
 		"fs": "0.0.1-security",
 		"node": "^16.1.0",
-		"node-stream-zip": "^1.13.4",
+		"node-stream-zip": "^1.13.5",
 		"path": "^0.12.7",
 		"pg": "^8.6.0",
 		"sequelize": "^6.6.2"
 	},
 	"devDependencies": {
-		"eslint": "^7.27.0",
+		"eslint": "^7.28.0",
 		"nodemon": "^2.0.7"
 	},
 	"eslintConfig": {
@@ -49,7 +49,7 @@
 	},
 	"homepage": "https://github.com/Bworld-Studio/openPharma#readme",
 	"license": "MIT",
-	"readme": "ERROR: No README data found!",
+	"readme": "README.md",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/Bworld-Studio/openPharma.git"

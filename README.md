@@ -26,11 +26,11 @@
 
 ## Last Update
 
-### 0.2.1
-  - ✅ Bump to 0.2.1
-  - 🚧 External APIs framework
-  - 🚧 Reorganization of the file system
-  - 🚧 Start splitting of db queries from api
+### 0.2.2
+  - ✅ Bump to 0.2.2
+  - ⬆️ Updates all depedencies
+  - 🔨 Correction on Client models
+  - 🚧 Start the splitting of db queries from api
 
 [Complete changelog](https://github.com/Bworld-Studio/openpharma/blob/main/CHANGELOG.md)
 
@@ -42,7 +42,7 @@
 ⚡ :zap:				Improving performance
 📜 :scroll:				Updating docs or readme
 🔑 :key:				Dealing with security
-🔁 :repeat:				Updating dependencies or data
+⬆️ :arrow_up:			Updating dependencies or data
 ✅ :white_check_mark:	New release is built
 👕 :shirt:				Refactoring or removing linter warnings
 ❌ :x:					Removing code or files

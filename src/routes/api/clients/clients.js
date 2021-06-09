@@ -18,7 +18,7 @@ router.get('/clients', (req, res) => {
 				{ firstName: { [Op.like]: search + '%' } }
 			]
 		}
-		Client.findAll( { where: query })
+		Client.clients.findAll( { where: query } )
 			.then(clients => {
 				res.json(clients)
 				// console.log(res.j)
@@ -26,7 +26,7 @@ router.get('/clients', (req, res) => {
 			.catch(err => { res.send('Error: ' + err) })
 	}
 	else {
-		Client.findAll()
+		Client.clients.findAll()
 			.then(clients => {
 				console.log(clients)
 				res.json(clients)
@@ -46,7 +46,7 @@ router.post('/clients', (req, res) => {
 		console.log(client)
 		// client.birthDate.toString()
 		client.viewAt = new Date()
-		Client.create(client)
+		Client.clients.create(client)
 			.then(res => {
 				res.send('Client Added')
 			})
@@ -58,7 +58,7 @@ router.post('/clients', (req, res) => {
 
 // Get Client
 router.get('/clients/:uuid', (req, res) => {
-	Client.findByPk(req.params.uuid)
+	Client.clients.findByPk(req.params.uuid)
 		.then(client => { res.json(client) })
 		.catch(err => { res.send('Error: ' + err) })
 })
@@ -86,7 +86,7 @@ router.put('/clients/:uuid', (req, res) => {
 			error: 'Bad Data'
 		})
 	} else {
-		Client.update(
+		Client.clients.update(
 			req.body,
 			{ where: { uuid: req.params.uuid } }
 		)
