@@ -3,7 +3,7 @@ const router = express.Router()
 
 const { Op } = require('sequelize')
 
-const BDPM = require('../../../models/BDPM')
+const BDPM = require('../../models/BDPM')
 // const BdM_IT = require('../models/BdM_IT')
 
 // Get all Products

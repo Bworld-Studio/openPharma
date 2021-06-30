@@ -3,7 +3,8 @@ const router = express.Router()
 
 const { Op } = require('sequelize')
 
-const Client = require('../../../models/Client')
+const Client = require('../../models/Client')
+// const clients = require('../stores/clients')
 // const clientService = require('../../../services/clients')
 
 // Get all Clients

@@ -1,3 +1,8 @@
+### 0.2.3
+  - ✅ Bump to 0.2.3
+  - ⬆️ Updates all depedencies
+  - 🚧 Splitting of db queries from api
+
 ### 0.2.2
   - ✅ Bump to 0.2.2
   - ⬆️ Updates all depedencies

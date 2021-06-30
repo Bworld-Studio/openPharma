@@ -16,15 +16,15 @@
 		"axios": "^0.21.1",
 		"express": "^4.17.1",
 		"fs": "0.0.1-security",
-		"node": "^16.1.0",
-		"node-stream-zip": "^1.13.5",
+		"node-stream-zip": "^1.13.6",
 		"path": "^0.12.7",
 		"pg": "^8.6.0",
-		"sequelize": "^6.6.2"
+		"sequelize": "^6.6.4"
 	},
 	"devDependencies": {
-		"eslint": "^7.28.0",
-		"nodemon": "^2.0.7"
+		"eslint": "^7.29.0",
+		"nodemon": "^2.0.8",
+		"sequelize-cli": "^6.2.0"
 	},
 	"eslintConfig": {
 		"root": true,

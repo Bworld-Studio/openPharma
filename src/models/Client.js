@@ -20,44 +20,6 @@ const clients = dbG.sequelize.define('clients', {
 },
 { freezeTableName: true })
 
-// const getClients = async () => {
-// 	console.log('getClients')
-// }
-
-// const searchClients = async () => {
-
-// }
-
-// const getClient = async (params) => {
-
-// 	// Client.findByPk(params.uuid)
-// 	// 	.then(client => { res.json(client) })
-// 	// 	.catch(err => { res.send('Error: ' + err) })
-// }
-
-// const createClient = async () => {
-
-// }
-
-// const updateClient = async () => {
-
-// }
-
-// const updateLastViewClient = async () => {
-
-// }
-
-// const deactivateClient = async () => {
-
-// }
-
 module.exports = {
-	clients,
-	// getClients,
-	// getClient,
-	// searchClients,
-	// createClient,
-	// updateClient,
-	// updateLastViewClient,
-	// deactivateClient
+	clients
 }
