@@ -22,7 +22,7 @@
 		"sequelize": "^6.6.4"
 	},
 	"devDependencies": {
-		"eslint": "^7.29.0",
+		"eslint": "^7.30.0",
 		"nodemon": "^2.0.9",
 		"sequelize-cli": "^6.2.0"
 	},
