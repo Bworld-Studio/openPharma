@@ -27,7 +27,7 @@ const BDPM = include('models/BDPM') // eslint-disable-line no-undef
 const Common = include('models/Common') // eslint-disable-line no-undef
 
 const uploadFileToDB = function(filename) {
-	return new Promise((resolve, reject)=>{
+	return new Promise((resolve, reject) => {
 		let timestamp = new Date()
 		Fs.readFile(Path.join(__dirname, 'tmp', filename), 'latin1', (err, data) => {	// eslint-disable-line no-alert, no-undef
 			if (err) {

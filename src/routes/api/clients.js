@@ -1,39 +1,18 @@
 const express = require('express')
 const router = express.Router()
 
-const { Op } = require('sequelize')
+// const { Op } = require('sequelize')
 
 const Client = require('../../models/Client')
-// const clients = require('../stores/clients')
+const clients = require('../stores/clients') // eslint-disable-line no-unused-vars
 // const clientService = require('../../../services/clients')
 
 // Get all Clients
 router.get('/clients', (req, res) => {
-	// console.log(req.query)
-	let search = req.query.search
-	if ( search != undefined ) {	// Search API
-		let query = {
-			[Op.or]: [
-				{ numSS: { [Op.like]: search + '%' } },
-				{ lastName: { [Op.like]: search + '%' } },
-				{ firstName: { [Op.like]: search + '%' } }
-			]
-		}
-		Client.clients.findAll( { where: query } )
-			.then(clients => {
-				res.json(clients)
-				// console.log(res.j)
-			})
-			.catch(err => { res.send('Error: ' + err) })
-	}
-	else {
-		Client.clients.findAll()
-			.then(clients => {
-				console.log(clients)
-				res.json(clients)
-			})
-			.catch(err => { res.send('Error: ' + err) })
-	}
+
+	clients.getClients(req.query.search).then( clients => {
+		res.json(clients)
+	})
 })
 
 // Add Client

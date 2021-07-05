@@ -3,7 +3,8 @@ const bdpm = require('./bdpm/bdpm')
 
 // eslint-disable-next-line no-unused-vars
 const readFile = async (file) => {
-	return new Promise((resolve,reject)=>{
+	return new Promise((resolve,reject) => {
+		// BDPM files
 		if (file === 'BDPM') {
 			bdpm.updateFiles()
 				.then(() => {
@@ -14,6 +15,7 @@ const readFile = async (file) => {
 				})
 		}
 	})
+	// BDM_IT
 	// if ( file === 'ZIP' ) {
 		
 	// }
